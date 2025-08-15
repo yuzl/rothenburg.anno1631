@@ -631,38 +631,41 @@ const LandingPage: React.FC = () => {
             <p className="mb-4 text-lg" style={{ color: '#e9e6dc' }}>
               {content.footer.projectInfo}
             </p>
-            <div className="flex justify-center space-x-8 text-sm" style={{ color: '#b7ae98' }}>
+            <div
+              className="flex flex-wrap justify-center gap-4 text-sm sm:gap-8"
+              style={{ color: '#b7ae98' }}
+            >
               <a
                 href="#"
-                className="hover:text-c3a86b transition-colors"
+                className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Verein
               </a>
               <a
                 href="#"
-                className="hover:text-c3a86b transition-colors"
+                className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Museum
               </a>
               <a
                 href="#"
-                className="hover:text-c3a86b transition-colors"
+                className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Pfingstfestspiele
               </a>
               <a
                 href="#"
-                className="hover:text-c3a86b transition-colors"
+                className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Impressum
               </a>
               <a
                 href="#"
-                className="hover:text-c3a86b transition-colors"
+                className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Datenschutz

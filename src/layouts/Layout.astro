@@ -1,0 +1,40 @@
+---
+import '@/styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Rothenburg Anno 1631 – Das lebendige Museum</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+  <script
+    defer
+    data-domain="rothenburg-anno1631.de"
+    src="https://plausible-psc88gos4wogwwwsk8wk444o.rothenburg-anno1631.de/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"
+  ></script>
+  <script>
+    // @ts-expect-error plausible is not typed in the script
+    window.plausible =
+      // @ts-expect-error plausible is not typed in the script
+      window.plausible ||
+      function () {
+        // @ts-expect-error plausible is not typed in the script
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+  </script>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

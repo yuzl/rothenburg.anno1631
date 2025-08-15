@@ -1,6 +1,109 @@
 @import 'tailwindcss';
 
-/* this is how to customize tailwind styles  */
-@theme {
-  --color-new: #222;
+/* Base reset refinements */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* Medieval background texture */
+.medieval-bg {
+  background-color: #0f0e0c;
+  background-image: 
+    /* Primary warm glow */
+    radial-gradient(ellipse 1200px 800px at 25% 25%, rgba(195, 168, 107, 0.08) 0%, rgba(195, 168, 107, 0.03) 30%, transparent 70%),
+    /* Secondary cool accent */
+    radial-gradient(ellipse 1000px 1200px at 75% 75%, rgba(39, 56, 74, 0.06) 0%, rgba(39, 56, 74, 0.02) 40%, transparent 80%),
+    /* Tertiary warm highlight */
+    radial-gradient(ellipse 600px 400px at 50% 15%, rgba(195, 168, 107, 0.05) 0%, transparent 60%),
+    /* Subtle beige variation */
+    radial-gradient(ellipse 400px 300px at 15% 85%, rgba(183, 174, 152, 0.03) 0%, transparent 50%),
+    /* Additional depth layer */
+    radial-gradient(ellipse 800px 600px at 85% 25%, rgba(195, 168, 107, 0.02) 0%, transparent 60%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  position: relative;
 }
+
+.medieval-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Horizontal texture variation */
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(195, 168, 107, 0.015) 15%,
+      transparent 30%,
+      rgba(39, 56, 74, 0.01) 45%,
+      transparent 60%,
+      rgba(195, 168, 107, 0.015) 75%,
+      transparent 90%,
+      rgba(183, 174, 152, 0.008) 100%
+    ),
+    /* Vertical subtle grain */
+    linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(195, 168, 107, 0.008) 20%,
+      transparent 40%,
+      rgba(39, 56, 74, 0.006) 60%,
+      transparent 80%,
+      rgba(195, 168, 107, 0.008) 100%
+    );
+  background-size: 100% 100%, 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Selection */
+::selection { background: #c3a86b; color: #0f0e0c; }
+::-moz-selection { background: #c3a86b; color: #0f0e0c; }
+
+/* Subtle keyframes */
+@keyframes fade-in { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: translateY(0);} }
+@keyframes rise { from { opacity: 0; transform: translateY(12px);} to { opacity: 1; transform: translateY(0);} }
+.animate-in { animation: fade-in 500ms ease-out both; }
+.animate-rise { animation: rise 700ms ease-out both; }
+
+/* Utility tokens not in Tailwind */
+.vignette::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 220px 80px rgba(0,0,0,.75);
+}
+
+.card {
+  background-color: #1b1915;
+  border: 1px solid #2a261f;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #cbb07a 0%, #b7924d 100%);
+  color: #0f0e0c;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+}
+.btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* Blue accent color utilities */
+.text-brand-accent { color: #27384a; }
+.text-brand-accent2 { color: #1e2a35; }
+.bg-brand-accent { background-color: #27384a; }
+.bg-brand-accent2 { background-color: #1e2a35; }
+.border-brand-accent { border-color: #27384a; }
+.border-brand-accent2 { border-color: #1e2a35; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #141310; }
+::-webkit-scrollbar-thumb { background: #2a261f; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #3a342b; }

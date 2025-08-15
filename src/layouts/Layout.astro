@@ -8,26 +8,17 @@ import '@/styles/global.css';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Crimson+Text:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <title>Rothenburg Anno 1631 – Das lebendige Museum</title>
   </head>
-  <body>
+  <body class="bg-brand-bg text-brand-text font-serif antialiased">
     <slot />
   </body>
-  <script
-    defer
-    data-domain="rothenburg-anno1631.de"
-    src="https://plausible-psc88gos4wogwwwsk8wk444o.rothenburg-anno1631.de/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"
-  ></script>
-  <script>
-    // @ts-expect-error plausible is not typed in the script
-    window.plausible =
-      // @ts-expect-error plausible is not typed in the script
-      window.plausible ||
-      function () {
-        // @ts-expect-error plausible is not typed in the script
-        (window.plausible.q = window.plausible.q || []).push(arguments);
-      };
-  </script>
 </html>
 
 <style>

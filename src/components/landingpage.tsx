@@ -39,51 +39,6 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="medieval-bg min-h-screen">
-      {/* Navigation */}
-      <nav
-        className="fixed top-0 z-50 w-full backdrop-blur-lg"
-        style={{
-          backgroundColor: 'rgba(15, 14, 12, 0.95)',
-          borderBottom: '1px solid rgba(39, 56, 74, 0.3)',
-          boxShadow: '0 4px 20px rgba(39, 56, 74, 0.1)',
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div
-                className="flex h-10 w-10 items-center justify-center rounded-full"
-                style={{ backgroundColor: '#27384a' }}
-              >
-                <span className="text-sm font-bold" style={{ color: '#e9e6dc' }}>
-                  R
-                </span>
-              </div>
-              <h1
-                className="text-xl font-semibold"
-                style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
-              >
-                Rothenburg Anno 1631
-              </h1>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={() => scrollToSection('dates')}
-                className="relative z-50 cursor-pointer rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 hover:scale-105"
-                style={{
-                  background: 'linear-gradient(180deg, #cbb07a 0%, #b7924d 100%)',
-                  color: '#0f0e0c',
-                  fontWeight: '600',
-                }}
-              >
-                Termine
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
         {/* Background Image with Vignette */}
@@ -92,18 +47,30 @@ const LandingPage: React.FC = () => {
           style={{ backgroundImage: 'url(/rothenburg.anno1631/bg-hero.png)' }}
         />
 
+        {/* Semi-transparent overlay for better text readability */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundColor: 'rgba(155, 126, 68, 0.1)',
+          }}
+        />
+
         {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <div className="animate-in">
             <h1
-              className="mb-6 text-5xl leading-tight font-bold md:text-7xl lg:text-8xl"
+              className="mb-8 text-5xl leading-none font-bold md:mb-12 md:text-7xl lg:text-8xl"
               style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
             >
-              {content.hero.headline}
+              <div>{content.hero.headline.part1}</div>
+              <div style={{ color: '#c3a86b' }}>{content.hero.headline.part2}</div>
             </h1>
             <h2
-              className="mb-8 text-2xl font-semibold md:text-3xl lg:text-4xl"
-              style={{ color: '#c3a86b', fontFamily: 'EB Garamond, Garamond, serif' }}
+              className="mb-4 text-xl font-semibold md:text-3xl lg:text-3xl"
+              style={{
+                color: 'var(--color-text-primary)',
+                fontFamily: 'EB Garamond, Garamond, serif',
+              }}
             >
               {content.hero.subheadline}
             </h2>
@@ -115,7 +82,7 @@ const LandingPage: React.FC = () => {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <button
-                onClick={() => scrollToSection('dates')}
+                onClick={() => scrollToSection('tickets')}
                 className="btn-primary group inline-flex cursor-pointer items-center px-8 py-4 text-lg font-semibold transition-all duration-300 hover:-translate-y-1"
               >
                 {content.hero.cta}
@@ -127,10 +94,7 @@ const LandingPage: React.FC = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <button
-            onClick={() => scrollToSection('about')}
-            className="text-brand-accent hover:text-brand-accent2 transition-colors"
-          >
+          <button onClick={() => scrollToSection('about')} style={{ color: '#b7ae98' }}>
             <ChevronDown className="h-8 w-8" />
           </button>
         </div>

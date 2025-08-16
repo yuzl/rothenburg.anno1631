@@ -2,7 +2,10 @@ import { Crown, Sword, MapPin } from 'lucide-react';
 
 export const content = {
   hero: {
-    headline: 'Rothenburg Anno 1631',
+    headline: {
+      part1: 'Rothenburg',
+      part2: 'Anno 1631',
+    },
     subheadline: 'Unser Museum wird zur Bühne',
     description:
       'Erlebt, wie Quacksalber ihre Mixturen anpreisen, Söldner vom harten Lagerleben erzählen, Frauen um ihre Männer flehen – und manche selbst zu Heldinnen werden. Der Kerkermeister öffnet die düsteren Gefängnistore, der Rat ringt um Entscheidungen und mittendrin: Ihr.',

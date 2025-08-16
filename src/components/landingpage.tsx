@@ -411,36 +411,72 @@ const LandingPage: React.FC = () => {
                   <h3 className="text-xl font-bold">Jetzt Tickets buchen</h3>
                 </div>
                 <div className="p-6">
-                  <div className="mb-6 text-center">
-                    <div className="mb-2 text-3xl font-bold" style={{ color: '#c3a86b' }}>
-                      {content.tickets.price}
-                    </div>
-                    <div className="text-sm" style={{ color: '#b7ae98' }}>
-                      {content.tickets.priceLabel}
-                    </div>
-                    <div
-                      className="mt-2 inline-block rounded-full px-3 py-1 text-xs font-medium"
-                      style={{ backgroundColor: '#27384a', color: '#e9e6dc' }}
-                    >
-                      {content.tickets.availability}
+                  <div className="text-md mb-2 font-medium" style={{ color: '#c3a86b' }}>
+                    {content.tickets.discountLabel}
+                  </div>
+                  <div
+                    className="mb-8 rounded-lg p-4 text-center"
+                    style={{ backgroundColor: '#1b1915' }}
+                  >
+                    <div className="text-center">
+                      <div className="mb-2 flex items-center justify-center gap-2">
+                        <div
+                          className="text-xl font-bold line-through"
+                          style={{ color: '#b7ae98' }}
+                        >
+                          {content.tickets.regularPrice}
+                        </div>
+                        <div className="text-3xl font-bold" style={{ color: '#c3a86b' }}>
+                          {content.tickets.discountedPrice}
+                        </div>
+                      </div>
+                      <div className="text-sm" style={{ color: '#b7ae98' }}>
+                        {content.tickets.priceLabel}
+                      </div>
+                      <div className="mt-1 text-xs" style={{ color: '#b7ae98' }}>
+                        {content.tickets.priceComparison}
+                      </div>
+                      <div
+                        className="mt-2 inline-block rounded-full px-3 py-1 text-xs font-medium"
+                        style={{ backgroundColor: '#27384a', color: '#e9e6dc' }}
+                      >
+                        {content.tickets.availability}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-md font-medium" style={{ color: '#c3a86b' }}>
+                      {content.tickets.upcomingShowsLabel}
+                    </div>
                     <div
-                      className="rounded-lg p-4 text-center"
+                      className="rounded-lg p-4 text-center mb-8"
                       style={{ backgroundColor: '#1b1915' }}
                     >
-                      <p className="mb-2 text-sm font-medium" style={{ color: '#c3a86b' }}>
-                        🎟️ Nächste Vorstellungen
-                      </p>
-                      <div className="space-y-2 text-sm" style={{ color: '#b7ae98' }}>
+                      <div className="space-y-4">
                         {content.tickets.upcomingShows.map((show, index) => (
-                          <div key={index}>{show}</div>
+                          <div key={index}>
+                            <div
+                              className="mb-2 text-lg font-semibold"
+                              style={{ color: '#e9e6dc' }}
+                            >
+                              {show.date}
+                            </div>
+                            <div className="flex flex-wrap justify-center gap-2">
+                              {show.timeSlots.map((timeSlot, timeIndex) => (
+                                <div
+                                  key={timeIndex}
+                                  className="rounded px-3 py-1 text-xs font-medium"
+                                  style={{ backgroundColor: '#27384a', color: '#e9e6dc' }}
+                                >
+                                  {timeSlot}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </div>
-
                     <button
                       onClick={() => handleBooking()}
                       className="w-full cursor-pointer text-lg font-semibold transition-all duration-300 hover:scale-105"
@@ -468,7 +504,7 @@ const LandingPage: React.FC = () => {
                       {content.tickets.secondaryButton}
                     </button>
 
-                    <div className="pt-4 text-center text-xs" style={{ color: '#b7ae98' }}>
+                    <div className="pt-4 text-center text-sm" style={{ color: '#b7ae98' }}>
                       {content.tickets.trustInfo}
                     </div>
                   </div>
@@ -605,7 +641,7 @@ const LandingPage: React.FC = () => {
                 Verein
               </a>
               <a
-                href="https://www.meistertrunk.de/de/museum/"
+                href="https://maps.app.goo.gl/UqfXKebC2SzRLZGv8"
                 className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >

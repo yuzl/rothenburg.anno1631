@@ -71,13 +71,18 @@ export const content = {
       'Einzigartige Museumsatmosphäre',
       'Historisch korrekte Darstellung',
     ],
-    price: '€9,90',
+    regularPrice: '€14,90',
+    discountedPrice: '€9,90',
     priceLabel: 'pro Person',
+    priceComparison: 'statt',
+    discountLabel: 'Aktionspreis 2025',
     availability: 'Begrenzte Plätze verfügbar',
+        upcomingShowsLabel: 'Nächste Vorstellungen',
     upcomingShows: [
-      'Samstag, 23. März 2024 - 19:30 Uhr',
-      'Sonntag, 24. März 2024 - 16:00 Uhr',
-      'Samstag, 30. März 2024 - 19:30 Uhr',
+      {
+        date: 'Samstag, 01. November 2025',
+        timeSlots: ['12:00 Uhr', '14:00 Uhr', '16:00 Uhr', '18:00 Uhr']
+      }
     ],
     primaryButton: 'Tickets online buchen',
     secondaryButton: 'Gruppenanfrage stellen',

@@ -59,14 +59,16 @@ const LandingPage: React.FC = () => {
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <div className="animate-in">
             <h1
-              className="mb-8 text-5xl leading-none font-bold md:mb-12 md:text-7xl lg:text-8xl"
+              className="mb-8 leading-none font-bold md:mb-12"
               style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
             >
-              <div>{content.hero.headline.part1}</div>
-              <div style={{ color: '#c3a86b' }}>{content.hero.headline.part2}</div>
+              <div className="text-3xl md:text-5xl lg:text-6xl">{content.hero.headline.part1}</div>
+              <div className="text-5xl md:text-7xl lg:text-8xl" style={{ color: '#c3a86b' }}>
+                {content.hero.headline.part2}
+              </div>
             </h1>
             <h2
-              className="mb-4 text-xl font-semibold md:text-3xl lg:text-3xl"
+              className="mb-2 font-semibold text-lg md:text-xl lg:text-2xl"
               style={{
                 color: 'var(--color-text-primary)',
                 fontFamily: 'EB Garamond, Garamond, serif',
@@ -75,7 +77,7 @@ const LandingPage: React.FC = () => {
               {content.hero.subheadline}
             </h2>
             <p
-              className="mx-auto mb-12 max-w-4xl text-lg leading-relaxed md:text-xl"
+              className="mx-auto mb-12 max-w-3/4 lg:max-w-3xl text-md leading-relaxed md:text-lg lg:text-xl"
               style={{ color: '#b7ae98' }}
             >
               {content.hero.description}

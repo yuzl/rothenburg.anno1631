@@ -12,6 +12,7 @@ import {
   BookOpen,
   Mail,
   Phone,
+  Divide,
 } from 'lucide-react';
 import { content } from '../content/landing-page-content';
 
@@ -134,7 +135,7 @@ const LandingPage: React.FC = () => {
       {/* About Section */}
       <section id="about" className="bg-brand-surface relative z-10 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Benefits Section - Above Image */}
+          {/* Headline */}
           <div className="mb-16 text-center">
             <h3
               className="mb-6 text-3xl font-bold md:text-4xl"
@@ -151,7 +152,39 @@ const LandingPage: React.FC = () => {
             ></div>
           </div>
 
-          <div className="mb-20 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {/* Description Text */}
+          <div className="mb-16 text-center">
+            <p
+              className="mx-auto max-w-4xl text-lg leading-relaxed font-medium sm:text-xl md:text-2xl"
+              style={{
+                color: '#c8bfa8',
+                lineHeight: '1.7',
+              }}
+            >
+              {content.about.description}
+            </p>
+          </div>
+
+          {/* Hero Image Card */}
+          <div className="mb-20">
+            <div
+              className="relative overflow-hidden rounded-2xl"
+              style={{
+                boxShadow: '0 20px 40px rgba(0,0,0,.4)',
+              }}
+            >
+              <div className="relative aspect-[4/3] sm:aspect-[16/9]">
+                <img
+                  src={content.about.image}
+                  alt={content.about.alt}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Benefits Section */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {content.about.features.map((feature, index) => {
               // Define fitting icons for each benefit
               const icons = [
@@ -174,53 +207,28 @@ const LandingPage: React.FC = () => {
                       {icons[index]}
                     </div>
                   </div>
-                  <p className="text-base leading-relaxed md:text-lg" style={{ color: '#b7ae98' }}>
-                    {feature}
+                  <p
+                    className="text-base leading-relaxed md:text-lg"
+                    style={{ color: 'var(--color-text-secondary)' }}
+                  >
+                    {feature.split(':').map((part, partIndex) => {
+                      if (partIndex === 0) {
+                        return (
+                          <div
+                            key={partIndex}
+                            className="text-base font-bold"
+                            style={{ color: 'var(--color-text-primary)' }}
+                          >
+                            {part}:
+                          </div>
+                        );
+                      }
+                      return part;
+                    })}
                   </p>
                 </div>
               );
             })}
-          </div>
-
-          {/* Hero Image Card - Similar to scenes */}
-          <div>
-            <div
-              className="relative overflow-hidden rounded-2xl"
-              style={{
-                boxShadow: '0 20px 40px rgba(0,0,0,.4)',
-              }}
-            >
-              <div className="relative aspect-[16/9]">
-                <img
-                  src={content.about.image}
-                  alt={content.about.alt}
-                  className="h-full w-full object-cover"
-                />
-
-                {/* Enhanced gradient overlay for better text readability */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.1) 90%, transparent 100%)',
-                  }}
-                />
-
-                {/* Text overlay with improved styling */}
-                <div className="absolute right-0 bottom-0 left-0 p-8">
-                  <p
-                    className="max-w-xl text-lg leading-relaxed font-medium drop-shadow-lg md:text-xl"
-                    style={{
-                      color: '#c8bfa8',
-                      textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                      lineHeight: '1.7',
-                    }}
-                  >
-                    {content.about.description}
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

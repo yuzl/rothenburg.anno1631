@@ -1,5 +1,26 @@
 @import 'tailwindcss';
 
+/* CSS Custom Properties for Colors */
+:root {
+  /* Brand Colors */
+  --color-brand-bg: #0f0e0c;
+  --color-brand-surface: #141310;
+  --color-brand-elev: #1b1915;
+  --color-brand-border: #2a261f;
+  --color-brand-text: #e9e6dc;
+  --color-brand-muted: #b7ae98;
+  --color-brand-accent: #c3a86b;
+  --color-brand-accent2: #9a7e44;
+  
+  /* Additional Colors */
+  --color-text-primary: #e9e6dc;
+  --color-text-secondary: #b7ae98;
+  --color-text-accent: #c3a86b;
+  --color-bg-primary: #0f0e0c;
+  --color-bg-secondary: #141310;
+  --color-bg-elevated: #1b1915;
+}
+
 /* Base reset refinements */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -95,8 +116,7 @@ html { scroll-behavior: smooth; }
 .btn-primary:active { transform: translateY(0); }
 
 /* Blue accent color utilities */
-.text-brand-accent { color: #27384a; }
-.text-brand-accent2 { color: #1e2a35; }
+
 .bg-brand-accent { background-color: #27384a; }
 .bg-brand-accent2 { background-color: #1e2a35; }
 .border-brand-accent { border-color: #27384a; }

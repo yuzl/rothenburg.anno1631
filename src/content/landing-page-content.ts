@@ -52,43 +52,39 @@ export const content = {
       },
     ],
   },
-  dates: {
-    headline: 'Termine 2025',
-    description: 'Buchen Sie jetzt Ihre Zeitreise ins Jahr 1631!',
-    events: [
-      {
-        title: 'Aktionstag',
-        date: 'Samstag, 27. April 2025',
-        time: '11:00 - 17:00 Uhr',
-        location: 'Museum des Historischen Festspiels "Der Meistertrunk"',
-        price: '4 € (Erwachsene)',
-      },
-      {
-        title: 'Lange Nacht der Museen',
-        date: 'Datum wird noch bekanntgegeben',
-        time: 'Zeit wird noch bekanntgegeben',
-        location: 'Historiengewölbe des Historischen Festspiels "Der Meistertrunk"',
-        price: 'Preis wird noch bekanntgegeben',
-      },
+  tickets: {
+    headline: 'Sichert Euch Eure Tickets',
+    description: 'Erlebt Geschichte hautnah und werdet Teil eines unvergesslichen Abends im Jahr 1631. Plätze sind begrenzt!',
+    info: [
+      { label: 'Dauer', value: 'ca. 2 Stunden', icon: '⏰' },
+      { label: 'Sprache', value: 'Deutsch', icon: '🗣️' },
+      { label: 'Alter', value: 'Ab 12 Jahren', icon: '👥' },
+      { label: 'Gruppengröße', value: 'Max. 25 Personen', icon: '🎭' },
     ],
-    booking: {
-      maxGroup: '10-12 Personen',
-      duration: 'Ca. 60-90 Minuten',
-      language: 'Deutsch',
-      ageRecommendation: 'Ab 8 Jahren',
+    highlights: [
+      'Authentische historische Kostüme',
+      'Interaktive Theaterszenen',
+      'Professionelle Erzählerführung',
+      'Einzigartige Museumsatmosphäre',
+      'Historisch korrekte Darstellung',
+    ],
+    price: '€9,90',
+    priceLabel: 'pro Person',
+    availability: 'Begrenzte Plätze verfügbar',
+    upcomingShows: [
+      'Samstag, 23. März 2024 - 19:30 Uhr',
+      'Sonntag, 24. März 2024 - 16:00 Uhr',
+      'Samstag, 30. März 2024 - 19:30 Uhr',
+    ],
+    primaryButton: 'Tickets online buchen',
+    secondaryButton: 'Gruppenanfrage stellen',
+    trustInfo: 'Bezahlung vor Ort • Bestätigung innerhalb 1-3 Werktage • Kostenlose Stornierung bis 24h vorher',
+    contact: {
+      title: '📞 Haben Sie Fragen?',
+      description: 'Unser Team hilft Ihnen gerne bei der Buchung und beantwortet alle Fragen zum Erlebnis.',
+      email: 'info@rothenburg-museum.de',
+      phone: '+49 9861 867-0',
     },
-    bookingLabels: {
-      title: 'Wichtige Informationen',
-      groupSize: 'Gruppengröße',
-      duration: 'Dauer',
-      language: 'Sprache',
-      age: 'Alter',
-    },
-    futureEvents: {
-      title: 'Weitere Termine folgen',
-      description: 'Neue Events werden basierend auf Popularität und Feedback geplant',
-    },
-    bookingButton: 'Jetzt buchen',
   },
   team: {
     headline: 'Das Team hinter dem Projekt',
@@ -105,28 +101,6 @@ export const content = {
     image: '/rothenburg.anno1631/photos/team-meistertrunk.jpg',
     alt: 'Das Team des Vereins Historisches Festspiel "Der Meistertrunk" e.V.',
     placeholderText: 'Verein Meistertrunk',
-  },
-  contact: {
-    headline: 'Kontakt',
-    description:
-      'Haben Sie Fragen zu unserem Projekt? Wir freuen uns auf Ihre Nachricht!',
-    info: {
-      email: '[E-Mail-Adresse einfügen]',
-      phone: '[Telefonnummer einfügen]',
-      address:
-        'Museum des Historischen Festspiels "Der Meistertrunk", Rathaus Rothenburg ob der Tauber',
-    },
-    bookingProcess: [
-      'Wählen Sie Ihren gewünschten Termin',
-      'Geben Sie die Anzahl der Teilnehmer an (max. 12 Personen)',
-      'Wir bestätigen Ihre Buchung per E-Mail',
-      'Bezahlung erfolgt vor Ort',
-    ],
-    labels: {
-      email: 'E-Mail',
-      phone: 'Telefon',
-      address: 'Adresse',
-    },
   },
   footer: {
     projectInfo: 'Ein Projekt des Vereins "Historisches Festspiel der Meistertrunk" e.V.',

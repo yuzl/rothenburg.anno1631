@@ -13,6 +13,10 @@ import {
   Mail,
   Phone,
   Divide,
+  Timer,
+  Languages,
+  UserCheck,
+  Theater,
 } from 'lucide-react';
 import { content } from '../content/landing-page-content';
 
@@ -161,7 +165,21 @@ const LandingPage: React.FC = () => {
                 lineHeight: '1.7',
               }}
             >
-              {content.about.description}
+              {content.about.description.split('**').map((part, index) => {
+                if (index % 2 === 1) {
+                  // Odd indices are the bold parts
+                  return (
+                    <span
+                      key={index}
+                      className="font-bold"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >
+                      {part}
+                    </span>
+                  );
+                }
+                return part;
+              })}
             </p>
           </div>
 
@@ -320,162 +338,207 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Dates Section */}
-      <section id="dates" className="bg-brand-surface relative z-10 py-12 md:py-20">
+      {/* Ticket Section */}
+      <section id="tickets" className="bg-brand-surface relative z-10 py-12 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h2
               className="mb-6 text-4xl font-bold md:text-5xl"
               style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
             >
-              {content.dates.headline}
+              {content.tickets.headline}
             </h2>
-            <p className="text-xl" style={{ color: '#b7ae98' }}>
-              {content.dates.description}
+            <p className="mx-auto max-w-2xl text-lg" style={{ color: '#b7ae98' }}>
+              {content.tickets.description}
             </p>
           </div>
 
-          <div className="grid gap-12 lg:grid-cols-2">
-            {content.dates.events.map((event, index) => (
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-8 lg:grid-cols-2">
+              {/* Ticket Info Card */}
               <div
-                key={index}
-                className="relative p-8"
+                className="relative overflow-hidden rounded-2xl"
                 style={{
-                  backgroundColor: '#1b1915',
-                  border: '1px solid #c3a86b',
-                  borderRadius: '14px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,.35)',
+                  backgroundColor: '#141310',
+                  border: '1px solid #2a261f',
+                  boxShadow: '0 10px 30px rgba(0,0,0,.3)',
                 }}
               >
-                {index === 1 && (
-                  <div
-                    className="bg-opacity-60 absolute inset-0 z-10 flex items-center justify-center rounded-xl bg-black backdrop-blur-sm"
-                    style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
-                  >
-                    <div className="p-6 text-center">
-                      <p className="mb-2 text-lg font-semibold" style={{ color: '#e9e6dc' }}>
-                        {content.dates.futureEvents.title}
-                      </p>
-                      <p className="text-sm" style={{ color: '#b7ae98' }}>
-                        {content.dates.futureEvents.description}
-                      </p>
-                    </div>
-                  </div>
-                )}
-                <h3
-                  className="mb-6 text-2xl font-bold"
-                  style={{ color: '#c3a86b', fontFamily: 'EB Garamond, Garamond, serif' }}
-                >
-                  {event.title}
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Calendar className="h-5 w-5" style={{ color: '#c3a86b' }} />
-                    <span style={{ color: '#b7ae98' }}>{event.date}</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Clock className="h-5 w-5" style={{ color: '#c3a86b' }} />
-                    <span style={{ color: '#b7ae98' }}>{event.time}</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <MapPin className="h-5 w-5" style={{ color: '#c3a86b' }} />
-                    <span style={{ color: '#b7ae98' }}>{event.location}</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div
-                      className="flex h-5 w-5 items-center justify-center rounded-full"
-                      style={{ backgroundColor: '#c3a86b' }}
-                    >
-                      <span className="text-xs font-bold" style={{ color: '#0f0e0c' }}>
-                        €
-                      </span>
-                    </div>
-                    <span className="font-semibold" style={{ color: '#e9e6dc' }}>
-                      {event.price}
-                    </span>
-                  </div>
-                </div>
-                <button
-                  onClick={() => handleBooking()}
-                  className="mt-8 w-full cursor-pointer transition-all duration-300 hover:scale-105"
+                <div
+                  className="p-6 text-center"
                   style={{
-                    background: 'linear-gradient(180deg, #cbb07a 0%, #b7924d 100%)',
-                    color: '#0f0e0c',
-                    borderRadius: '12px',
-                    padding: '12px 20px',
-                    fontWeight: '600',
+                    backgroundColor: '#27384a',
+                    color: '#e9e6dc',
                   }}
                 >
-                  {content.dates.bookingButton}
-                </button>
-              </div>
-            ))}
-          </div>
+                  <h3 className="text-xl font-bold">Veranstaltungsdetails</h3>
+                </div>
+                <div className="p-6">
+                  <div className="mb-6 grid grid-cols-2 gap-4">
+                    {content.tickets.info.map((info, index) => {
+                      const icons = [
+                        <Timer key="timer" className="h-6 w-6" style={{ color: '#e9e6dc' }} />,
+                        <Languages
+                          key="languages"
+                          className="h-6 w-6"
+                          style={{ color: '#e9e6dc' }}
+                        />,
+                        <UserCheck
+                          key="usercheck"
+                          className="h-6 w-6"
+                          style={{ color: '#e9e6dc' }}
+                        />,
+                        <Theater key="theater" className="h-6 w-6" style={{ color: '#e9e6dc' }} />,
+                      ];
 
-          {/* Booking Information */}
-          <div
-            className="mt-16 rounded-xl p-8"
-            style={{
-              backgroundColor: '#1b1915',
-              border: '1px solid #2a261f',
-              boxShadow: '0 10px 30px rgba(0,0,0,.35)',
-            }}
-          >
-            <h3
-              className="mb-6 text-center text-2xl font-bold"
-              style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
-            >
-              {content.dates.bookingLabels.title}
-            </h3>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              <div className="flex items-center space-x-3">
-                <Users className="h-6 w-6" style={{ color: '#c3a86b' }} />
-                <div>
-                  <p className="font-semibold" style={{ color: '#e9e6dc' }}>
-                    {content.dates.bookingLabels.groupSize}
-                  </p>
-                  <p style={{ color: '#b7ae98' }}>{content.dates.booking.maxGroup}</p>
+                      return (
+                        <div
+                          key={index}
+                          className="rounded-lg p-4 text-center"
+                          style={{ backgroundColor: '#1b1915' }}
+                        >
+                          <div className="mb-3 flex justify-center">{icons[index]}</div>
+                          <div className="text-sm" style={{ color: '#b7ae98' }}>
+                            {info.label}
+                          </div>
+                          <div className="font-semibold" style={{ color: '#e9e6dc' }}>
+                            {info.value}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="space-y-3">
+                    <h4 className="mb-3 font-semibold" style={{ color: '#e9e6dc' }}>
+                      Im Erlebnis enthalten:
+                    </h4>
+                    {content.tickets.highlights.map((highlight, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div
+                          className="h-2 w-2 rounded-full"
+                          style={{ backgroundColor: '#c3a86b' }}
+                        ></div>
+                        <span className="text-sm" style={{ color: '#b7ae98' }}>
+                          {highlight}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <Clock className="h-6 w-6" style={{ color: '#c3a86b' }} />
-                <div>
-                  <p className="font-semibold" style={{ color: '#e9e6dc' }}>
-                    {content.dates.bookingLabels.duration}
-                  </p>
-                  <p style={{ color: '#b7ae98' }}>{content.dates.booking.duration}</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
+
+              {/* Booking Card */}
+              <div
+                className="relative overflow-hidden rounded-2xl"
+                style={{
+                  backgroundColor: '#141310',
+                  border: '1px solid #2a261f',
+                  boxShadow: '0 10px 30px rgba(0,0,0,.3)',
+                }}
+              >
                 <div
-                  className="flex h-6 w-6 items-center justify-center rounded-full"
-                  style={{ backgroundColor: '#c3a86b' }}
+                  className="p-6 text-center"
+                  style={{
+                    backgroundColor: '#27384a',
+                    color: '#e9e6dc',
+                  }}
                 >
-                  <span className="text-xs font-bold" style={{ color: '#0f0e0c' }}>
-                    D
-                  </span>
+                  <h3 className="text-xl font-bold">Jetzt Tickets buchen</h3>
                 </div>
-                <div>
-                  <p className="font-semibold" style={{ color: '#e9e6dc' }}>
-                    {content.dates.bookingLabels.language}
-                  </p>
-                  <p style={{ color: '#b7ae98' }}>{content.dates.booking.language}</p>
+                <div className="p-6">
+                  <div className="mb-6 text-center">
+                    <div className="mb-2 text-3xl font-bold" style={{ color: '#c3a86b' }}>
+                      {content.tickets.price}
+                    </div>
+                    <div className="text-sm" style={{ color: '#b7ae98' }}>
+                      {content.tickets.priceLabel}
+                    </div>
+                    <div
+                      className="mt-2 inline-block rounded-full px-3 py-1 text-xs font-medium"
+                      style={{ backgroundColor: '#27384a', color: '#e9e6dc' }}
+                    >
+                      {content.tickets.availability}
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div
+                      className="rounded-lg p-4 text-center"
+                      style={{ backgroundColor: '#1b1915' }}
+                    >
+                      <p className="mb-2 text-sm font-medium" style={{ color: '#c3a86b' }}>
+                        🎟️ Nächste Vorstellungen
+                      </p>
+                      <div className="space-y-2 text-sm" style={{ color: '#b7ae98' }}>
+                        {content.tickets.upcomingShows.map((show, index) => (
+                          <div key={index}>{show}</div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => handleBooking()}
+                      className="w-full cursor-pointer text-lg font-semibold transition-all duration-300 hover:scale-105"
+                      style={{
+                        backgroundColor: '#c3a86b',
+                        color: '#0f0e0c',
+                        borderRadius: '12px',
+                        padding: '16px 20px',
+                      }}
+                    >
+                      {content.tickets.primaryButton}
+                    </button>
+
+                    <button
+                      className="w-full cursor-pointer transition-all duration-300 hover:scale-105"
+                      style={{
+                        border: '1px solid #c3a86b',
+                        color: '#c3a86b',
+                        borderRadius: '12px',
+                        padding: '12px 20px',
+                        fontWeight: '600',
+                        backgroundColor: 'transparent',
+                      }}
+                    >
+                      {content.tickets.secondaryButton}
+                    </button>
+
+                    <div className="pt-4 text-center text-xs" style={{ color: '#b7ae98' }}>
+                      {content.tickets.trustInfo}
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div
-                  className="flex h-6 w-6 items-center justify-center rounded-full"
-                  style={{ backgroundColor: '#c3a86b' }}
-                >
-                  <span className="text-xs font-bold" style={{ color: '#0f0e0c' }}>
-                    8+
-                  </span>
-                </div>
-                <div>
-                  <p className="font-semibold" style={{ color: '#e9e6dc' }}>
-                    {content.dates.bookingLabels.age}
-                  </p>
-                  <p style={{ color: '#b7ae98' }}>{content.dates.booking.ageRecommendation}</p>
+            </div>
+
+            <div className="mt-12 text-center">
+              <div
+                className="rounded-lg border p-6"
+                style={{
+                  backgroundColor: 'rgba(39, 56, 74, 0.1)',
+                  borderColor: 'rgba(39, 56, 74, 0.3)',
+                }}
+              >
+                <h3 className="mb-3 text-lg font-semibold" style={{ color: '#e9e6dc' }}>
+                  {content.tickets.contact.title}
+                </h3>
+                <p className="mb-4" style={{ color: '#b7ae98' }}>
+                  {content.tickets.contact.description}
+                </p>
+                <div className="flex flex-col justify-center gap-4 sm:flex-row">
+                  <div className="flex items-center justify-center gap-2">
+                    <span>📧</span>
+                    <span className="text-sm font-medium" style={{ color: '#e9e6dc' }}>
+                      {content.tickets.contact.email}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <span>📞</span>
+                    <span className="text-sm font-medium" style={{ color: '#e9e6dc' }}>
+                      {content.tickets.contact.phone}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -556,79 +619,6 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="bg-brand-surface relative z-10 py-12 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <h2
-              className="mb-6 text-4xl font-bold md:text-5xl"
-              style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
-            >
-              {content.contact.headline}
-            </h2>
-            <p className="mx-auto max-w-3xl text-xl" style={{ color: '#b7ae98' }}>
-              {content.contact.description}
-            </p>
-          </div>
-
-          <div className="mx-auto max-w-2xl">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <div
-                  className="flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{
-                    backgroundColor: '#27384a',
-                    boxShadow: '0 8px 32px rgba(39, 56, 74, 0.3)',
-                  }}
-                >
-                  <Mail className="h-6 w-6" style={{ color: '#e9e6dc' }} />
-                </div>
-                <div>
-                  <p className="font-semibold" style={{ color: '#e9e6dc' }}>
-                    {content.contact.labels.email}
-                  </p>
-                  <p style={{ color: '#b7ae98' }}>{content.contact.info.email}</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div
-                  className="flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{
-                    backgroundColor: '#27384a',
-                    boxShadow: '0 8px 32px rgba(39, 56, 74, 0.3)',
-                  }}
-                >
-                  <Phone className="h-6 w-6" style={{ color: '#e9e6dc' }} />
-                </div>
-                <div>
-                  <p className="font-semibold" style={{ color: '#e9e6dc' }}>
-                    {content.contact.labels.phone}
-                  </p>
-                  <p style={{ color: '#b7ae98' }}>{content.contact.info.phone}</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <div
-                  className="flex h-16 w-16 items-center justify-center rounded-full"
-                  style={{
-                    backgroundColor: '#27384a',
-                    boxShadow: '0 8px 32px rgba(39, 56, 74, 0.3)',
-                  }}
-                >
-                  <MapPin className="h-6 w-6" style={{ color: '#e9e6dc' }} />
-                </div>
-                <div>
-                  <p className="font-semibold" style={{ color: '#e9e6dc' }}>
-                    {content.contact.labels.address}
-                  </p>
-                  <p style={{ color: '#b7ae98' }}>{content.contact.info.address}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer
         className="relative z-10 border-t py-12"
@@ -644,39 +634,32 @@ const LandingPage: React.FC = () => {
               style={{ color: '#b7ae98' }}
             >
               <a
-                href="#"
+                href="https://www.meistertrunk.de/de/"
                 className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Verein
               </a>
               <a
-                href="#"
+                href="https://www.meistertrunk.de/de/museum/"
                 className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Museum
               </a>
               <a
-                href="#"
+                href="https://www.meistertrunk.de/de/hist-festspiel/"
                 className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Pfingstfestspiele
               </a>
               <a
-                href="#"
+                href="https://www.meistertrunk.de/de/impressum/"
                 className="hover:text-c3a86b px-2 py-1 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Impressum
-              </a>
-              <a
-                href="#"
-                className="hover:text-c3a86b px-2 py-1 transition-colors"
-                style={{ color: '#b7ae98' }}
-              >
-                Datenschutz
               </a>
             </div>
           </div>

@@ -68,7 +68,7 @@ const LandingPage: React.FC = () => {
               </div>
             </h1>
             <h2
-              className="mb-2 font-semibold text-lg md:text-xl lg:text-2xl"
+              className="mb-2 text-lg font-semibold md:text-xl lg:text-2xl"
               style={{
                 color: 'var(--color-text-primary)',
                 fontFamily: 'EB Garamond, Garamond, serif',
@@ -77,7 +77,7 @@ const LandingPage: React.FC = () => {
               {content.hero.subheadline}
             </h2>
             <p
-              className="mx-auto mb-12 max-w-3/4 lg:max-w-3xl text-md leading-relaxed md:text-lg lg:text-xl"
+              className="text-md mx-auto mb-12 max-w-3/4 leading-relaxed md:text-lg lg:max-w-3xl lg:text-xl"
               style={{ color: '#b7ae98' }}
             >
               {content.hero.description}
@@ -452,7 +452,7 @@ const LandingPage: React.FC = () => {
                       {content.tickets.upcomingShowsLabel}
                     </div>
                     <div
-                      className="rounded-lg p-4 text-center mb-8"
+                      className="mb-8 rounded-lg p-4 text-center"
                       style={{ backgroundColor: '#1b1915' }}
                     >
                       <div className="space-y-4">
@@ -535,12 +535,6 @@ const LandingPage: React.FC = () => {
                       {content.tickets.contact.email}
                     </span>
                   </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <span>📞</span>
-                    <span className="text-sm font-medium" style={{ color: '#e9e6dc' }}>
-                      {content.tickets.contact.phone}
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -617,6 +611,79 @@ const LandingPage: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners & Sponsors Section */}
+      <section className="bg-brand-surface relative z-10 py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2
+              className="mb-4 text-3xl font-bold md:text-4xl"
+              style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
+            >
+              {content.partners.headline}
+            </h2>
+            <div
+              className="mx-auto h-1 w-24 rounded-full"
+              style={{ backgroundColor: '#27384a' }}
+            ></div>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {content.partners.partners.map((partner, index) => (
+              <div key={index} className="text-center">
+                <div className="mb-4 flex justify-center">
+                  <a
+                    href={partner.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-transform hover:scale-105"
+                  >
+                    <div
+                      className="flex h-20 w-40 items-center justify-center overflow-hidden rounded-lg"
+                      style={{
+                        backgroundColor: '#fff',
+                        border: '1px solid #2a261f',
+                        boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+                      }}
+                    >
+                      {partner.image ? (
+                        <img
+                          src={partner.image}
+                          alt={partner.alt}
+                          className="h-full w-full object-contain p-2"
+                          onError={e => {
+                            // Fallback to text logo if image fails to load
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                            const textLogo = target.parentElement?.querySelector(
+                              '.text-logo'
+                            ) as HTMLElement;
+                            if (textLogo) {
+                              textLogo.style.display = 'flex';
+                            }
+                          }}
+                        />
+                      ) : null}
+                      <div
+                        className={`text-logo text-2xl font-bold ${partner.image ? 'hidden' : 'flex'} h-full w-full items-center justify-center`}
+                        style={{ color: '#c3a86b' }}
+                      >
+                        {partner.logo}
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold" style={{ color: '#e9e6dc' }}>
+                  {partner.name}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#b7ae98' }}>
+                  {partner.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

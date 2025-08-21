@@ -8,26 +8,26 @@ export const content = {
     },
     subheadline: 'Unser Museum wird zur Bühne',
     description:
-      'Erlebt, wie Quacksalber ihre Mixturen anpreisen, Söldner vom harten Lagerleben erzählen, Frauen um ihre Männer flehen – und manche selbst zu Heldinnen werden. Der Kerkermeister öffnet die düsteren Gefängnistore, der Rat ringt um Entscheidungen und mittendrin: Ihr.',
+      'Erlebt, wie Quacksalber ihre Mixturen anpreisen, Söldner vom harten Lagerleben erzählen, Frauen um ihre Männer flehen und manche selbst zu Heldinnen werden. Der Kerkermeister öffnet die düsteren Gefängnistore, der Rat ringt um Entscheidungen und mittendrin: Ihr.',
     cta: 'Jetzt Tickets buchen',
   },
   about: {
     headline: 'Geschichte zum Leben erweckt',
     description:
-      'Einzelne Szenen aus dem Jahr 1631 erwachen zum Leben. Laiendarsteller des Vereins Historisches Festspiel "Der Meistertrunk" schlüpfen in historische Rollen und machen die Stadtgeschichte Rothenburgs so hautnah erlebbar mitten im Museum. Ein Erzähler begleitet durch den Abend, gibt Einblicke und verbindet die Szenen mit dem historischen Kontext. **Interaktion ist ausdrücklich erwünscht!**',
+      'Einzelne Szenen aus dem Jahr 1631 erwachen zum Leben. Laiendarsteller des Vereins Historisches Festspiel "Der Meistertrunk" schlüpfen in historische Rollen und machen die Stadtgeschichte Rothenburgs so hautnah erlebbar mitten im Museum. Ein Erzähler begleitet euch, gibt Einblicke und verbindet die Szenen mit dem historischen Kontext. **Interaktion ist ausdrücklich erwünscht!**',
     image: '/rothenburg.anno1631/photos/meistertrunk_lebendiges-museum_0002.jpg',
     alt: 'Historische Darstellung im Museum - Geschichte wird lebendig',
     features: [
       'Interaktive Szenen: Besucher werden aktiv in das Geschehen eingebunden',
       'Authentische Darstellung: Laiendarsteller in historischen Rollen',
-      'Historischer Kontext: Erzähler verbindet Szenen mit der Geschichte',
+      'Historischer Kontext: Rothenburg ob der Tauber im Jahr 1631',
       'Museum als Bühne: Mitten im vereinseigenen Museum',
     ],
   },
   experience: {
     headline: 'Die Szenen von 1631',
     description:
-      'Erleben Sie hautnah die Ereignisse des Jahres 1631, als General Tillys Truppen vor den Toren Rothenburgs standen.',
+      'Erlebt hautnah die Ereignisse des Jahres 1631, als General Tillys Truppen vor den Toren Rothenburgs standen.',
     scenes: [
       {
         title: 'Die drohende Belagerung',
@@ -57,12 +57,12 @@ export const content = {
   },
   tickets: {
     headline: 'Sichert Euch Eure Tickets',
-    description: 'Erlebt Geschichte hautnah und werdet Teil eines unvergesslichen Abends im Jahr 1631. Plätze sind begrenzt!',
+    description: 'Werdet Teil eines unvergesslichen Besuchs im Jahr 1631. Plätze sind begrenzt!',
     info: [
-      { label: 'Dauer', value: 'ca. 2 Stunden', icon: '⏰' },
+      { label: 'Dauer', value: 'ca. 60 Minuten', icon: '⏰' },
       { label: 'Sprache', value: 'Deutsch', icon: '🗣️' },
       { label: 'Alter', value: 'Ab 12 Jahren', icon: '👥' },
-      { label: 'Gruppengröße', value: 'Max. 25 Personen', icon: '🎭' },
+      { label: 'Gruppengröße', value: 'Max. 12 Personen', icon: '🎭' },
     ],
     highlights: [
       'Authentische historische Kostüme',
@@ -80,35 +80,63 @@ export const content = {
         upcomingShowsLabel: 'Nächste Vorstellungen',
     upcomingShows: [
       {
-        date: 'Samstag, 01. November 2025',
+        date: 'Sonntag, 02. November 2025',
         timeSlots: ['12:00 Uhr', '14:00 Uhr', '16:00 Uhr', '18:00 Uhr']
       }
     ],
     primaryButton: 'Tickets online buchen',
     secondaryButton: 'Gruppenanfrage stellen',
-    trustInfo: 'Bezahlung vor Ort • Bestätigung innerhalb 1-3 Werktage • Kostenlose Stornierung bis 24h vorher',
+    trustInfo: 'Bezahlung vor Ort • Bestätigung innerhalb 1-3 Werktage',
     contact: {
-      title: '📞 Haben Sie Fragen?',
-      description: 'Unser Team hilft Ihnen gerne bei der Buchung und beantwortet alle Fragen zum Erlebnis.',
-      email: 'info@rothenburg-museum.de',
-      phone: '+49 9861 867-0',
+      title: 'Habt ihr Fragen?',
+      description: 'Unser Team hilft euch gerne bei der Buchung und beantwortet Fragen zum Erlebnis.',
+      email: 'shop@meistertrunk.de',
     },
   },
   team: {
     headline: 'Das Team hinter dem Projekt',
     description:
-      'Das Projekt wird vollständig von Mitgliedern des Vereins "Historisches Festspiel der Meistertrunk" e.V. getragen. Über 700 Vereinsmitglieder beleben seit über 140 Jahren die Stadtgeschichte Rothenburgs.',
+      'Das Projekt wird vollständig von Mitgliedern des Vereins "Historisches Festspiel der Meistertrunk" e.V. getragen. Über 800 Vereinsmitglieder beleben seit über 140 Jahren die Stadtgeschichte Rothenburgs.',
     details: [
       'Darsteller: Ehrenamtliche Laiendarsteller aus verschiedenen Gruppierungen des Vereins',
       'Erzähler: Erfahrene Mitglieder führen als roter Faden durch die Szenen',
       'Organisation: Vereinsmitglieder mit Unterstützung von Historikern und Museumsexperten',
-      'Regie: In Zusammenarbeit mit dem Regisseur des Bühnenstücks',
     ],
     background:
       'Der Verein ist fest in der Stadtgesellschaft Rothenburgs verankert und feiert seit Jahrzehnten die Geschichte der Stadt. Kernstück ist das Laienschauspiel "Der Meistertrunk", das jedes Jahr mehrmals aufgeführt wird und hunderte Besucher anzieht.',
     image: '/rothenburg.anno1631/photos/team-meistertrunk.jpg',
     alt: 'Das Team des Vereins Historisches Festspiel "Der Meistertrunk" e.V.',
     placeholderText: 'Verein Meistertrunk',
+  },
+  partners: {
+    headline: 'Partner & Förderer',
+    description: 'Unser Projekt wird unterstützt von wichtigen Partnern und Förderern',
+    partners: [
+      {
+        name: 'Meistertrunk Verein',
+        description: 'Träger des historischen Festspiels',
+        logo: 'MT',
+        link: 'https://www.meistertrunk.de',
+        image: '/rothenburg.anno1631/photos/partner-meistertrunk-logo.png',
+        alt: 'Logo des Vereins Historisches Festspiel "Der Meistertrunk" e.V.',
+      },
+      {
+        name: 'Heimatministerium Bayern',
+        description: 'Förderung Heimat.Engagiert',
+        logo: 'KB',
+        link: 'https://www.stmfh.bayern.de/internet/stmf/aktuelles/pressemitteilungen/25967/',
+        image: '/rothenburg.anno1631/logos/partner-heimat-bayern.jpg',
+        alt: 'Heimatministerium Bayern',
+      },
+      {
+        name: 'Lebendiges Museum',
+        description: 'Authentische Darstellung der Geschichte',
+        logo: 'LM',
+        link: 'https://www.meistertrunk.de/de/lebendiges-museum/',
+        image: '/rothenburg.anno1631/photos/partner-lebendiges-museum-logo.png',
+        alt: 'Logo des Lebendigen Museums',
+      },
+    ],
   },
   footer: {
     projectInfo: 'Ein Projekt des Vereins "Historisches Festspiel der Meistertrunk" e.V.',

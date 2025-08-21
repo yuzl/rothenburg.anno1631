@@ -435,9 +435,6 @@ const LandingPage: React.FC = () => {
                       <div className="text-sm" style={{ color: '#b7ae98' }}>
                         {content.tickets.priceLabel}
                       </div>
-                      <div className="mt-1 text-xs" style={{ color: '#b7ae98' }}>
-                        {content.tickets.priceComparison}
-                      </div>
                       <div
                         className="mt-2 inline-block rounded-full px-3 py-1 text-xs font-medium"
                         style={{ backgroundColor: '#27384a', color: '#e9e6dc' }}

@@ -74,7 +74,6 @@ export const content = {
     regularPrice: '€14,90',
     discountedPrice: '€9,90',
     priceLabel: 'pro Person',
-    priceComparison: 'statt',
     discountLabel: 'Aktionspreis 2025',
     availability: 'Begrenzte Plätze verfügbar',
         upcomingShowsLabel: 'Nächste Vorstellungen',

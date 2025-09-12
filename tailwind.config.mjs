@@ -77,10 +77,7 @@ export default {
         display: ['"EB Garamond"', 'Garamond', 'serif'],
         serif: ['"Crimson Text"', 'Georgia', 'serif'],
         ui: ['Inter', 'system-ui', 'Arial', 'sans-serif'],
-        medieval: ['Cinzel', 'Times New Roman', 'serif'],
-        'medieval-body': ['Crimson Text', 'Georgia', 'serif'],
-        'medieval-decorative': ['UnifrakturMaguntia', 'Cinzel', 'serif'],
-        'medieval-script': ['MedievalSharp', 'Crimson Text', 'serif'],
+        'rotisSans': ['RotisSemiSans', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'parchment': "url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noise\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.9\" numOctaves=\"4\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100\" height=\"100\" filter=\"url(%23noise)\" opacity=\"0.1\"/%3E%3C/svg%3E')",

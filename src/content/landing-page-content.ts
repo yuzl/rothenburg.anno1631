@@ -2,14 +2,6 @@ import { Crown, Sword, MapPin } from 'lucide-react';
 
 export const content = {
   hero: {
-    headline: {
-      part1: 'Rothenburg',
-      part2: 'Anno 1631',
-    },
-    subheadline: 'Unser Museum wird zur Bühne',
-    description:
-      'Erlebt, wie Quacksalber ihre Mixturen anpreisen, Söldner vom harten Lagerleben erzählen, Frauen um ihre Männer flehen und manche selbst zu Heldinnen werden. Der Kerkermeister öffnet die düsteren Gefängnistore, der Rat ringt um Entscheidungen und mittendrin: Ihr.',
-    cta: 'Jetzt Tickets buchen',
   },
   about: {
     headline: 'Geschichte zum Leben erweckt',
@@ -42,7 +34,7 @@ export const content = {
         description:
           'Landsknechte und Kroaten lagern vor der Stadt und erzählen von vergangenen Schlachten.',
         icon: Sword,
-        image: '/rothenburg.anno1631/photos/meistertrunk_lebendiges-museum_0025.jpg',
+        image: '/rothenburg.anno1631/photos/meistertrunk_lebendiges-museum_0019.jpg',
         alt: 'Söldner in ihrem Lager vor der Stadt',
       },
       {
@@ -61,7 +53,7 @@ export const content = {
     info: [
       { label: 'Dauer', value: 'ca. 60 Minuten', icon: '⏰' },
       { label: 'Sprache', value: 'Deutsch', icon: '🗣️' },
-      { label: 'Alter', value: 'Ab 12 Jahren', icon: '👥' },
+      { label: 'Alter', value: 'Ab 14 Jahren', icon: '👥' },
       { label: 'Gruppengröße', value: 'Max. 12 Personen', icon: '🎭' },
     ],
     highlights: [
@@ -76,19 +68,20 @@ export const content = {
     priceLabel: 'pro Person',
     discountLabel: 'Aktionspreis 2025',
     availability: 'Begrenzte Plätze verfügbar',
-        upcomingShowsLabel: 'Nächste Vorstellungen',
+    upcomingShowsLabel: 'Nächste Vorstellungen',
     upcomingShows: [
       {
         date: 'Sonntag, 02. November 2025',
-        timeSlots: ['12:00 Uhr', '14:00 Uhr', '16:00 Uhr', '18:00 Uhr']
-      }
+        timeSlots: ['11:00 Uhr', '13:50 Uhr', '15:30 Uhr', '17:30 Uhr'],
+      },
     ],
-    primaryButton: 'Tickets online buchen',
-    secondaryButton: 'Gruppenanfrage stellen',
-    trustInfo: 'Bezahlung vor Ort • Bestätigung innerhalb 1-3 Werktage',
+    primaryButton: 'Online buchen bald verfügbar', // Tickets online buchen
+    secondaryButton: '-', // Gruppenanfrage stellen
+    trustInfo: 'Sichere Online-Bezahlung • Bestätigung innerhalb 1-3 Werktage',
     contact: {
       title: 'Habt ihr Fragen?',
-      description: 'Unser Team hilft euch gerne bei der Buchung und beantwortet Fragen zum Erlebnis.',
+      description:
+        'Unser Team hilft euch gerne bei der Buchung und beantwortet Fragen zum Erlebnis.',
       email: 'shop@meistertrunk.de',
     },
   },

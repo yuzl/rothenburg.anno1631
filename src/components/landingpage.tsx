@@ -1,24 +1,17 @@
 import React from 'react';
 import {
-  ArrowRight,
-  Calendar,
   MapPin,
-  Clock,
   Users,
   ChevronDown,
-  Sword,
   Shield,
-  Crown,
   BookOpen,
-  Mail,
-  Phone,
-  Divide,
   Timer,
   Languages,
   UserCheck,
   Theater,
 } from 'lucide-react';
 import { content } from '../content/landing-page-content';
+import { AuroraText } from './magicui/aurora-text';
 
 const LandingPage: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -38,80 +31,66 @@ const LandingPage: React.FC = () => {
   };
 
   return (
-    <div className="medieval-bg min-h-screen">
+    <div className="medieval-bg min-h-screen space-y-12">
       {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
         {/* Background Image with Vignette */}
         <div
-          className="vignette absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="vignette absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] brightness-75"
           style={{ backgroundImage: 'url(/rothenburg.anno1631/bg-hero.png)' }}
-        />
-
-        {/* Semi-transparent overlay for better text readability */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundColor: 'rgba(155, 126, 68, 0.1)',
-          }}
         />
 
         {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="animate-in">
-            <h1
-              className="mb-8 leading-none font-bold md:mb-12"
-              style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
-            >
-              <div className="text-3xl md:text-5xl lg:text-6xl">{content.hero.headline.part1}</div>
-              <div className="text-5xl md:text-7xl lg:text-8xl" style={{ color: '#c3a86b' }}>
-                {content.hero.headline.part2}
-              </div>
-            </h1>
-            <h2
-              className="mb-2 text-lg font-semibold md:text-xl lg:text-2xl"
-              style={{
-                color: 'var(--color-text-primary)',
-                fontFamily: 'EB Garamond, Garamond, serif',
-              }}
-            >
-              {content.hero.subheadline}
-            </h2>
-            <p
-              className="text-md mx-auto mb-12 max-w-3/4 leading-relaxed md:text-lg lg:max-w-3xl lg:text-xl"
+          <div className="animate-in flex flex-col items-center justify-center gap-12 brightness-125">
+            <div className="flex flex-col gap-4">
+              <h1 className="leading-none font-bold tracking-tighter" style={{ color: '#e9e6dc' }}>
+                <div className="text-6xl font-bold text-shadow-lg md:text-7xl lg:text-[10rem]">
+                  <AuroraText>Rothenburg</AuroraText>
+                </div>
+                <div
+                  className="text-2xl font-light tracking-wide uppercase opacity-90 md:text-4xl"
+                  style={{ color: '#b7ae98' }}
+                >
+                  Anno 1631
+                </div>
+              </h1>
+            </div>
+            <div
+              className="animate-in flex max-w-2xl flex-col gap-2 rounded-lg bg-[#1b1915]/50 p-8 text-xl"
               style={{ color: '#b7ae98' }}
             >
-              {content.hero.description}
-            </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <button
-                onClick={() => scrollToSection('tickets')}
-                className="btn-primary group inline-flex cursor-pointer items-center px-8 py-4 text-lg font-semibold transition-all duration-300 hover:-translate-y-1"
-              >
-                {content.hero.cta}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </button>
+              <h2 className="font-bold">Unser Museum wird zur Bühne</h2>
+              <p className="">
+                Frauen kämpfen um ihre Familien, Soldaten marschieren, der Rat ringt um
+                Entscheidungen. Erleben Sie Szenen des Dreißigjährigen Krieges hautnah – interaktiv,
+                authentisch, bewegend.
+              </p>
             </div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <button onClick={() => scrollToSection('about')} style={{ color: '#b7ae98' }}>
+          <button
+            onClick={() => scrollToSection('about')}
+            style={{ backgroundColor: 'var(--color-brand-accent)' }}
+            className="cursor-pointer rounded-full p-2"
+          >
             <ChevronDown className="h-8 w-8" />
           </button>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="bg-brand-surface relative z-10 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section id="about" className="bg-brand-surface relative z-10 py-12 md:py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
           {/* Headline */}
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center sm:mb-16">
             <h3
               className="mb-6 text-3xl font-bold md:text-4xl"
               style={{
                 color: '#e9e6dc',
-                fontFamily: 'EB Garamond, Garamond, serif',
               }}
             >
               {content.about.headline}
@@ -123,7 +102,7 @@ const LandingPage: React.FC = () => {
           </div>
 
           {/* Description Text */}
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center sm:mb-16">
             <p
               className="mx-auto max-w-4xl text-lg leading-relaxed font-medium sm:text-xl md:text-2xl"
               style={{
@@ -150,7 +129,7 @@ const LandingPage: React.FC = () => {
           </div>
 
           {/* Hero Image Card */}
-          <div className="mb-20">
+          <div className="mb-12 sm:mb-16 lg:mb-20">
             <div
               className="relative overflow-hidden rounded-2xl"
               style={{
@@ -168,7 +147,7 @@ const LandingPage: React.FC = () => {
           </div>
 
           {/* Benefits Section */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
             {content.about.features.map((feature, index) => {
               // Define fitting icons for each benefit
               const icons = [
@@ -218,21 +197,21 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="bg-brand-bg relative z-10 py-12 md:py-20">
+      <section id="experience" className="bg-brand-bg relative z-10 py-10 md:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center sm:mb-16">
             <h2
-              className="mb-6 text-4xl font-bold md:text-5xl"
-              style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
+              className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl"
+              style={{ color: '#e9e6dc' }}
             >
               {content.experience.headline}
             </h2>
-            <p className="mx-auto max-w-3xl text-xl" style={{ color: '#b7ae98' }}>
+            <p className="mx-auto max-w-3xl text-lg sm:text-xl" style={{ color: '#b7ae98' }}>
               {content.experience.description}
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {content.experience.scenes.map((scene, index) => {
               const IconComponent = scene.icon;
               return (
@@ -243,7 +222,7 @@ const LandingPage: React.FC = () => {
                     boxShadow: '0 20px 40px rgba(0,0,0,.4)',
                   }}
                 >
-                  <div className="relative aspect-[3/4]">
+                  <div className="relative aspect-square sm:aspect-[3/4]">
                     {scene.image ? (
                       <img
                         src={scene.image}
@@ -274,19 +253,18 @@ const LandingPage: React.FC = () => {
                     />
 
                     {/* Text overlay with improved styling */}
-                    <div className="absolute right-0 bottom-0 left-0 p-6">
+                    <div className="absolute right-0 bottom-0 left-0 p-4 sm:p-6">
                       <h3
-                        className="mb-3 text-2xl font-bold drop-shadow-lg"
+                        className="mb-2 text-xl font-bold drop-shadow-lg sm:mb-3 sm:text-2xl"
                         style={{
                           color: '#e9e6dc',
-                          fontFamily: 'EB Garamond, Garamond, serif',
                           textShadow: '0 2px 4px rgba(0,0,0,0.8)',
                         }}
                       >
                         {scene.title}
                       </h3>
                       <p
-                        className="text-base leading-relaxed font-medium drop-shadow-lg"
+                        className="text-sm leading-relaxed font-medium drop-shadow-lg sm:text-base"
                         style={{
                           color: '#c8bfa8',
                           textShadow: '0 1px 3px rgba(0,0,0,0.8)',
@@ -305,22 +283,22 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Ticket Section */}
-      <section id="tickets" className="bg-brand-surface relative z-10 py-12 md:py-20">
+      <section id="tickets" className="bg-brand-surface relative z-10 py-10 md:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center sm:mb-16">
             <h2
-              className="mb-6 text-4xl font-bold md:text-5xl"
-              style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
+              className="mb-6 text-3xl font-bold sm:text-4xl md:text-5xl"
+              style={{ color: '#e9e6dc' }}
             >
               {content.tickets.headline}
             </h2>
-            <p className="mx-auto max-w-2xl text-lg" style={{ color: '#b7ae98' }}>
+            <p className="mx-auto max-w-2xl text-base sm:text-lg" style={{ color: '#b7ae98' }}>
               {content.tickets.description}
             </p>
           </div>
 
           <div className="mx-auto max-w-6xl">
-            <div className="grid gap-8 lg:grid-cols-2">
+            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
               {/* Ticket Info Card */}
               <div
                 className="relative overflow-hidden rounded-2xl"
@@ -340,7 +318,7 @@ const LandingPage: React.FC = () => {
                   <h3 className="text-xl font-bold">Veranstaltungsdetails</h3>
                 </div>
                 <div className="p-6">
-                  <div className="mb-6 grid grid-cols-2 gap-4">
+                  <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                     {content.tickets.info.map((info, index) => {
                       const icons = [
                         <Timer key="timer" className="h-6 w-6" style={{ color: '#e9e6dc' }} />,
@@ -511,7 +489,7 @@ const LandingPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-12 text-center">
+            <div className="mt-8 text-center sm:mt-12">
               <div
                 className="rounded-lg border p-6"
                 style={{
@@ -540,17 +518,20 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="bg-brand-bg relative z-10 py-12 md:py-20">
+      <section className="bg-brand-bg relative z-10 py-10 md:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="animate-rise">
               <h2
-                className="mb-8 text-4xl font-bold md:text-5xl"
-                style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
+                className="mb-6 text-3xl font-bold sm:mb-8 sm:text-4xl md:text-5xl"
+                style={{ color: '#e9e6dc' }}
               >
                 {content.team.headline}
               </h2>
-              <p className="mb-8 text-lg leading-relaxed" style={{ color: '#b7ae98' }}>
+              <p
+                className="mb-6 text-base leading-relaxed sm:mb-8 sm:text-lg"
+                style={{ color: '#b7ae98' }}
+              >
                 {content.team.description}
               </p>
               <div className="space-y-4">
@@ -613,22 +594,22 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Partners & Sponsors Section */}
-      <section className="bg-brand-surface relative z-10 py-12 md:py-16">
+      <section className="bg-brand-surface relative z-10 py-10 md:py-14 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center sm:mb-12">
             <h2
-              className="mb-4 text-3xl font-bold md:text-4xl"
-              style={{ color: '#e9e6dc', fontFamily: 'EB Garamond, Garamond, serif' }}
+              className="mb-4 text-2xl font-bold sm:text-3xl md:text-4xl"
+              style={{ color: '#e9e6dc' }}
             >
               {content.partners.headline}
             </h2>
             <div
-              className="mx-auto h-1 w-24 rounded-full"
+              className="mx-auto h-1 w-20 rounded-full sm:w-24"
               style={{ backgroundColor: '#27384a' }}
             ></div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {content.partners.partners.map((partner, index) => (
               <div key={index} className="text-center">
                 <div className="mb-4 flex justify-center">
@@ -687,42 +668,42 @@ const LandingPage: React.FC = () => {
 
       {/* Footer */}
       <footer
-        className="relative z-10 border-t py-12"
+        className="relative z-10 border-t py-8 sm:py-12"
         style={{ backgroundColor: '#0f0e0c', borderColor: '#2a261f' }}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="mb-4 text-lg" style={{ color: '#e9e6dc' }}>
+            <p className="mb-4 text-base sm:text-lg" style={{ color: '#e9e6dc' }}>
               {content.footer.projectInfo}
             </p>
             <div
-              className="flex flex-wrap justify-center gap-4 text-sm sm:gap-8"
+              className="flex flex-wrap justify-center gap-3 text-xs sm:gap-4 sm:text-sm"
               style={{ color: '#b7ae98' }}
             >
               <a
                 href="https://www.meistertrunk.de/de/"
-                className="hover:text-c3a86b px-2 py-1 transition-colors"
+                className="hover:text-c3a86b px-3 py-2 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Verein
               </a>
               <a
                 href="https://maps.app.goo.gl/UqfXKebC2SzRLZGv8"
-                className="hover:text-c3a86b px-2 py-1 transition-colors"
+                className="hover:text-c3a86b px-3 py-2 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Museum
               </a>
               <a
                 href="https://www.meistertrunk.de/de/hist-festspiel/"
-                className="hover:text-c3a86b px-2 py-1 transition-colors"
+                className="hover:text-c3a86b px-3 py-2 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Pfingstfestspiele
               </a>
               <a
                 href="https://www.meistertrunk.de/de/impressum/"
-                className="hover:text-c3a86b px-2 py-1 transition-colors"
+                className="hover:text-c3a86b px-3 py-2 transition-colors"
                 style={{ color: '#b7ae98' }}
               >
                 Impressum

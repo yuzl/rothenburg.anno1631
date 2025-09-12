@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   MapPin,
   Users,
@@ -11,10 +11,22 @@ import {
   Theater,
 } from 'lucide-react';
 import { content } from '../content/landing-page-content';
-import { AuroraText } from './magicui/aurora-text';
 
 const LandingPage: React.FC = () => {
+  const [isClient, setIsClient] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleImageError = (imageKey: string) => {
+    setImageErrors(prev => ({ ...prev, [imageKey]: true }));
+  };
+
   const scrollToSection = (sectionId: string) => {
+    if (!isClient) return;
+
     const element = document.getElementById(sectionId);
     if (element) {
       const navHeight = 80; // Height of the fixed navigation
@@ -27,41 +39,40 @@ const LandingPage: React.FC = () => {
   };
 
   const handleBooking = () => {
+    if (!isClient) return;
+
     window.open('https://www.google.com', '_blank');
   };
 
   return (
-    <div className="medieval-bg min-h-screen space-y-12">
+    <div className="medieval-bg space-y-12">
       {/* Hero Section */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-        {/* Background Image with Vignette */}
+      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden md:min-h-screen">
         <div
-          className="vignette absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] brightness-75"
-          style={{ backgroundImage: 'url(/rothenburg.anno1631/bg-hero.png)' }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] brightness-75 sepia-25"
+          style={{ backgroundImage: 'url(/rothenburg.anno1631/bg-hero.jpg)' }}
         />
 
         {/* Hero Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="animate-in flex flex-col items-center justify-center gap-12 brightness-125">
-            <div className="flex flex-col gap-4">
-              <h1 className="leading-none font-bold tracking-tighter" style={{ color: '#e9e6dc' }}>
-                <div className="text-6xl font-bold text-shadow-lg md:text-7xl lg:text-[10rem]">
-                  <AuroraText>Rothenburg</AuroraText>
-                </div>
-                <div
-                  className="text-2xl font-light tracking-wide uppercase opacity-90 md:text-4xl"
-                  style={{ color: '#b7ae98' }}
-                >
-                  Anno 1631
-                </div>
-              </h1>
-            </div>
-            <div
-              className="animate-in flex max-w-2xl flex-col gap-2 rounded-lg bg-[#1b1915]/50 p-8 text-xl"
-              style={{ color: '#b7ae98' }}
+          <div className="animate-in flex flex-col items-center justify-center gap-16">
+            <h1
+              className="flex flex-col gap-6 leading-none font-bold tracking-tighter"
+              style={{ color: '#e9e6dc' }}
             >
-              <h2 className="font-bold">Unser Museum wird zur Bühne</h2>
-              <p className="">
+              <span className="unifrakturcook-bold text-6xl font-bold text-shadow-black/20 text-shadow-lg md:text-7xl lg:text-[10rem]">
+                Rothenburg
+              </span>
+              <span className="text-xl font-light tracking-widest uppercase md:text-3xl">
+                Anno 1631
+              </span>
+            </h1>
+            <div
+              className="animate-in flex max-w-2xl flex-col gap-2 text-xl text-shadow-black/20 text-shadow-lg"
+              style={{ color: '#e9e6dc' }}
+            >
+              <h2 className="text-2xl font-bold">Unser Museum wird zur Bühne</h2>
+              <p>
                 Frauen kämpfen um ihre Familien, Soldaten marschieren, der Rat ringt um
                 Entscheidungen. Erleben Sie Szenen des Dreißigjährigen Krieges hautnah – interaktiv,
                 authentisch, bewegend.
@@ -170,7 +181,7 @@ const LandingPage: React.FC = () => {
                       {icons[index]}
                     </div>
                   </div>
-                  <p
+                  <div
                     className="text-base leading-relaxed md:text-lg"
                     style={{ color: 'var(--color-text-secondary)' }}
                   >
@@ -179,16 +190,16 @@ const LandingPage: React.FC = () => {
                         return (
                           <div
                             key={partIndex}
-                            className="text-base font-bold"
+                            className="mb-1 text-base font-bold"
                             style={{ color: 'var(--color-text-primary)' }}
                           >
                             {part}:
                           </div>
                         );
                       }
-                      return part;
+                      return <span key={partIndex}>{part}</span>;
                     })}
-                  </p>
+                  </div>
                 </div>
               );
             })}
@@ -223,16 +234,12 @@ const LandingPage: React.FC = () => {
                   }}
                 >
                   <div className="relative aspect-square sm:aspect-[3/4]">
-                    {scene.image ? (
+                    {scene.image && !imageErrors[`experience-${scene.image}`] ? (
                       <img
                         src={scene.image}
                         alt={scene.alt}
                         className="h-full w-full object-cover"
-                        onError={e => {
-                          console.error(`Failed to load image: ${scene.image}`);
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                        }}
+                        onError={() => handleImageError(`experience-${scene.image}`)}
                       />
                     ) : (
                       <div
@@ -554,29 +561,18 @@ const LandingPage: React.FC = () => {
                 }}
               >
                 <div className="relative aspect-square">
-                  {content.team.image ? (
+                  {content.team.image && !imageErrors[`team-${content.team.image}`] ? (
                     <img
                       src={content.team.image}
                       alt={content.team.alt}
                       className="h-full w-full object-cover"
-                      onError={e => {
-                        console.error(`Failed to load team image: ${content.team.image}`);
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        // Show placeholder if image fails to load
-                        const placeholder = target.parentElement?.querySelector(
-                          '.placeholder'
-                        ) as HTMLElement;
-                        if (placeholder) {
-                          placeholder.style.display = 'flex';
-                        }
-                      }}
+                      onError={() => handleImageError(`team-${content.team.image}`)}
                     />
                   ) : null}
 
                   {/* Fallback placeholder */}
                   <div
-                    className={`placeholder ${content.team.image ? 'hidden' : 'flex'} h-full w-full items-center justify-center`}
+                    className={`placeholder ${content.team.image && !imageErrors[`team-${content.team.image}`] ? 'hidden' : 'flex'} h-full w-full items-center justify-center`}
                     style={{
                       backgroundColor: '#1b1915',
                       border: '1px solid #2a261f',
@@ -620,33 +616,23 @@ const LandingPage: React.FC = () => {
                     className="transition-transform hover:scale-105"
                   >
                     <div
-                      className="flex h-20 w-40 items-center justify-center overflow-hidden rounded-lg"
+                      className="flex h-30 w-50 items-center justify-center overflow-hidden rounded-lg"
                       style={{
                         backgroundColor: '#fff',
                         border: '1px solid #2a261f',
                         boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
                       }}
                     >
-                      {partner.image ? (
+                      {partner.image && !imageErrors[`partner-${partner.image}`] ? (
                         <img
                           src={partner.image}
                           alt={partner.alt}
                           className="h-full w-full object-contain p-2"
-                          onError={e => {
-                            // Fallback to text logo if image fails to load
-                            const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
-                            const textLogo = target.parentElement?.querySelector(
-                              '.text-logo'
-                            ) as HTMLElement;
-                            if (textLogo) {
-                              textLogo.style.display = 'flex';
-                            }
-                          }}
+                          onError={() => handleImageError(`partner-${partner.image}`)}
                         />
                       ) : null}
                       <div
-                        className={`text-logo text-2xl font-bold ${partner.image ? 'hidden' : 'flex'} h-full w-full items-center justify-center`}
+                        className={`text-logo text-2xl font-bold ${partner.image && !imageErrors[`partner-${partner.image}`] ? 'hidden' : 'flex'} h-full w-full items-center justify-center`}
                         style={{ color: '#c3a86b' }}
                       >
                         {partner.logo}

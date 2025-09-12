@@ -1,8 +1,6 @@
 import { Crown, Sword, MapPin } from 'lucide-react';
 
 export const content = {
-  hero: {
-  },
   about: {
     headline: 'Geschichte zum Leben erweckt',
     description:
@@ -109,7 +107,7 @@ export const content = {
         description: 'Träger des historischen Festspiels',
         logo: 'MT',
         link: 'https://www.meistertrunk.de',
-        image: '/rothenburg.anno1631/photos/partner-meistertrunk-logo.png',
+        image: '/rothenburg.anno1631/logos/partner-meistertrunk-logo.svg',
         alt: 'Logo des Vereins Historisches Festspiel "Der Meistertrunk" e.V.',
       },
       {
@@ -124,7 +122,7 @@ export const content = {
         name: 'Lebendiges Museum',
         description: 'Authentische Darstellung der Geschichte',
         logo: 'LM',
-        link: 'https://www.meistertrunk.de/de/lebendiges-museum/',
+        link: 'https://www.meistertrunk.de/de/museum/',
         image: '/rothenburg.anno1631/photos/partner-lebendiges-museum-logo.png',
         alt: 'Logo des Lebendigen Museums',
       },

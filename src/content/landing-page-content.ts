@@ -70,11 +70,15 @@ export const content = {
     upcomingShows: [
       {
         date: 'Sonntag, 02. November 2025',
-        timeSlots: ['11:00 Uhr', '13:50 Uhr', '15:30 Uhr', '17:30 Uhr'],
+        timeSlots: ['13:30 Uhr', '15:30 Uhr', '17:30 Uhr'],
+      },
+      {
+        date: 'Samstag, 22. November 2025',
+        timeSlots: ['16:00 Uhr', '17:30 Uhr', '19:00 Uhr'],
       },
     ],
-    primaryButton: 'Online buchen bald verfügbar', // Tickets online buchen
-    secondaryButton: '-', // Gruppenanfrage stellen
+    primaryButton: 'Online buchen (bald verfügbar)', // Tickets online buchen
+    secondaryButton: 'Gruppenanfrage stellen (bald verfügbar)', // Gruppenanfrage stellen
     trustInfo: 'Sichere Online-Bezahlung • Bestätigung innerhalb 1-3 Werktage',
     contact: {
       title: 'Habt ihr Fragen?',

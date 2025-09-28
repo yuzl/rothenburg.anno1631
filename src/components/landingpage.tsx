@@ -38,12 +38,6 @@ const LandingPage: React.FC = () => {
     }
   };
 
-  const handleBooking = () => {
-    if (!isClient) return;
-
-    window.open('https://www.google.com', '_blank');
-  };
-
   return (
     <div className="medieval-bg space-y-12">
       {/* Hero Section */}
@@ -402,7 +396,7 @@ const LandingPage: React.FC = () => {
                     {content.tickets.discountLabel}
                   </div>
                   <div
-                    className="mb-8 rounded-lg p-4 text-center"
+                    className="mb-8 rounded-lg px-4 py-8 text-center"
                     style={{ backgroundColor: '#1b1915' }}
                   >
                     <div className="text-center">
@@ -434,10 +428,10 @@ const LandingPage: React.FC = () => {
                       {content.tickets.upcomingShowsLabel}
                     </div>
                     <div
-                      className="mb-8 rounded-lg p-4 text-center"
+                      className="mb-8 rounded-lg px-4 py-8 text-center"
                       style={{ backgroundColor: '#1b1915' }}
                     >
-                      <div className="space-y-4">
+                      <div className="space-y-10">
                         {content.tickets.upcomingShows.map((show, index) => (
                           <div key={index}>
                             <div
@@ -462,7 +456,7 @@ const LandingPage: React.FC = () => {
                       </div>
                     </div>
                     <button
-                      onClick={() => handleBooking()}
+                      disabled
                       className="w-full cursor-pointer text-lg font-semibold transition-all duration-300 hover:scale-105"
                       style={{
                         backgroundColor: '#c3a86b',
@@ -475,6 +469,7 @@ const LandingPage: React.FC = () => {
                     </button>
 
                     <button
+                      disabled
                       className="w-full cursor-pointer transition-all duration-300 hover:scale-105"
                       style={{
                         border: '1px solid #c3a86b',

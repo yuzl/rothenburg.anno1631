@@ -1,5 +1,8 @@
 ---
 import '@/styles/global.css';
+
+// Get the site URL from Astro config
+const siteUrl = import.meta.env.SITE || 'https://anno1631.meistertrunk.de';
 ---
 
 <!doctype html>
@@ -7,7 +10,7 @@ import '@/styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,28 +22,25 @@ import '@/styles/global.css';
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yuzl.github.io/rothenburg.anno1631/" />
+    <meta property="og:url" content={`${siteUrl}/`} />
     <meta property="og:title" content="Rothenburg Anno 1631 – Das lebendige Museum" />
     <meta
       property="og:description"
       content="Entdecken Sie das historische Rothenburg ob der Tauber im Jahr 1631 - ein lebendiges Museum der Renaissance"
     />
-    <meta property="og:image" content="https://yuzl.github.io/rothenburg.anno1631/og-image.png" />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://yuzl.github.io/rothenburg.anno1631/" />
+    <meta property="twitter:url" content={`${siteUrl}/`} />
     <meta property="twitter:title" content="Rothenburg Anno 1631 – Das lebendige Museum" />
     <meta
       property="twitter:description"
       content="Entdecken Sie das historische Rothenburg ob der Tauber im Jahr 1631 - ein lebendiges Museum der Renaissance"
     />
-    <meta
-      property="twitter:image"
-      content="https://yuzl.github.io/rothenburg.anno1631/og-image.png"
-    />
+    <meta property="twitter:image" content={`${siteUrl}/og-image.png`} />
 
     <!-- Additional SEO -->
     <meta

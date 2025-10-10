@@ -10,6 +10,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://yuzl.github.io/',
-  base: '/rothenburg.anno1631',
+  site: 'https://anno1631.meistertrunk.de',
 });

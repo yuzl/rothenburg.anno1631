@@ -44,7 +44,7 @@ const LandingPage: React.FC = () => {
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden md:min-h-screen">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px] brightness-75 sepia-25"
-          style={{ backgroundImage: 'url(/rothenburg.anno1631/bg-hero.jpg)' }}
+          style={{ backgroundImage: 'url(/bg-hero.jpg)' }}
         />
 
         {/* Hero Content */}

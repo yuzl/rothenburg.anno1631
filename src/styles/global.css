@@ -4,7 +4,7 @@
 /* Rotis SemiSans Font Family */
 @font-face {
   font-family: 'RotisSemiSans';
-  src: url('/rothenburg.anno1631/fonts/fonts/Rotis-SemiSans-Std-Light.ttf') format('truetype');
+  src: url('/fonts/Rotis-SemiSans-Std-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: 'RotisSemiSans';
-  src: url('/rothenburg.anno1631/fonts/fonts/RotisSemiSans-LightItalic.otf') format('opentype');
+  src: url('/fonts/RotisSemiSans-LightItalic.otf') format('opentype');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: 'RotisSemiSans';
-  src: url('/rothenburg.anno1631/fonts/fonts/RotisSemiSans-ExtraBold.otf') format('opentype');
+  src: url('/fonts/RotisSemiSans-ExtraBold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;

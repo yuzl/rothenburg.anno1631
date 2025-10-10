@@ -5,7 +5,7 @@ export const content = {
     headline: 'Geschichte zum Leben erweckt',
     description:
       'Einzelne Szenen aus dem Jahr 1631 erwachen zum Leben. Laiendarsteller des Vereins Historisches Festspiel "Der Meistertrunk" schlüpfen in historische Rollen und machen die Stadtgeschichte Rothenburgs so hautnah erlebbar mitten im Museum. Ein Erzähler begleitet euch, gibt Einblicke und verbindet die Szenen mit dem historischen Kontext. **Interaktion ist ausdrücklich erwünscht!**',
-    image: '/rothenburg.anno1631/photos/meistertrunk_lebendiges-museum_0002.jpg',
+    image: '/photos/meistertrunk_lebendiges-museum_0002.jpg',
     alt: 'Historische Darstellung im Museum - Geschichte wird lebendig',
     features: [
       'Interaktive Szenen: Besucher werden aktiv in das Geschehen eingebunden',
@@ -24,7 +24,7 @@ export const content = {
         description:
           'Der Stadtrat ringt um die richtige Entscheidung gegen die herannahenden Truppen General Tillys.',
         icon: Crown,
-        image: '/rothenburg.anno1631/photos/meistertrunk_lebendiges-museum_0021.jpg',
+        image: '/photos/meistertrunk_lebendiges-museum_0021.jpg',
         alt: 'Stadtrat berät über die drohende Belagerung',
       },
       {
@@ -32,7 +32,7 @@ export const content = {
         description:
           'Landsknechte und Kroaten lagern vor der Stadt und erzählen von vergangenen Schlachten.',
         icon: Sword,
-        image: '/rothenburg.anno1631/photos/meistertrunk_lebendiges-museum_0019.jpg',
+        image: '/photos/meistertrunk_lebendiges-museum_0019.jpg',
         alt: 'Söldner in ihrem Lager vor der Stadt',
       },
       {
@@ -40,7 +40,7 @@ export const content = {
         description:
           'Besucher betreten eine dunkle Zelle und erleben die Willkür der Justiz im 17. Jahrhundert.',
         icon: MapPin,
-        image: '/rothenburg.anno1631/photos/meistertrunk_lebendiges-museum_0013.jpg',
+        image: '/photos/meistertrunk_lebendiges-museum_0013.jpg',
         alt: 'Das dunkle Gefängnis der Stadt',
       },
     ],
@@ -98,7 +98,7 @@ export const content = {
     ],
     background:
       'Der Verein ist fest in der Stadtgesellschaft Rothenburgs verankert und feiert seit Jahrzehnten die Geschichte der Stadt. Kernstück ist das Laienschauspiel "Der Meistertrunk", das jedes Jahr mehrmals aufgeführt wird und hunderte Besucher anzieht.',
-    image: '/rothenburg.anno1631/photos/team-meistertrunk.jpg',
+    image: '/photos/team-meistertrunk.jpg',
     alt: 'Das Team des Vereins Historisches Festspiel "Der Meistertrunk" e.V.',
     placeholderText: 'Verein Meistertrunk',
   },
@@ -111,7 +111,7 @@ export const content = {
         description: 'Träger des historischen Festspiels',
         logo: 'MT',
         link: 'https://www.meistertrunk.de',
-        image: '/rothenburg.anno1631/logos/partner-meistertrunk-logo.svg',
+        image: '/logos/partner-meistertrunk-logo.svg',
         alt: 'Logo des Vereins Historisches Festspiel "Der Meistertrunk" e.V.',
       },
       {
@@ -119,7 +119,7 @@ export const content = {
         description: 'Förderung Heimat.Engagiert',
         logo: 'KB',
         link: 'https://www.stmfh.bayern.de/internet/stmf/aktuelles/pressemitteilungen/25967/',
-        image: '/rothenburg.anno1631/logos/partner-heimat-bayern.jpg',
+        image: '/logos/partner-heimat-bayern.jpg',
         alt: 'Heimatministerium Bayern',
       },
       {
@@ -127,7 +127,7 @@ export const content = {
         description: 'Authentische Darstellung der Geschichte',
         logo: 'LM',
         link: 'https://www.meistertrunk.de/de/museum/',
-        image: '/rothenburg.anno1631/photos/partner-lebendiges-museum-logo.png',
+        image: '/photos/partner-lebendiges-museum-logo.png',
         alt: 'Logo des Lebendigen Museums',
       },
     ],

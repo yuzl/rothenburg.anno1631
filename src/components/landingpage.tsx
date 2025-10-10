@@ -5,12 +5,55 @@ import {
   ChevronDown,
   Shield,
   BookOpen,
-  Timer,
-  Languages,
-  UserCheck,
-  Theater,
+  Link,
+  Link2,
+  ExternalLink,
 } from 'lucide-react';
 import { content } from '../content/landing-page-content';
+import { decodeEmail } from '../lib/utils';
+
+// Component to decode and display obfuscated email
+const ObfuscatedEmail: React.FC<{ obfuscated: any }> = ({ obfuscated }) => {
+  const [decodedEmail, setDecodedEmail] = useState<string>('');
+  const [copied, setCopied] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Use mixed method for best spam protection
+    const email = decodeEmail(obfuscated.mixed, 'mixed');
+    setDecodedEmail(email);
+  }, [obfuscated]);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(decodedEmail);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea');
+      textArea.value = decodedEmail;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <a
+        href={`mailto:${decodedEmail}`}
+        className="text-sm font-medium transition-all duration-200 hover:underline"
+        style={{ color: '#e9e6dc' }}
+        title="E-Mail senden"
+      >
+        {decodedEmail}
+      </a>
+    </div>
+  );
+};
 
 const LandingPage: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
@@ -321,20 +364,7 @@ const LandingPage: React.FC = () => {
                 <div className="p-6">
                   <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                     {content.tickets.info.map((info, index) => {
-                      const icons = [
-                        <Timer key="timer" className="h-6 w-6" style={{ color: '#e9e6dc' }} />,
-                        <Languages
-                          key="languages"
-                          className="h-6 w-6"
-                          style={{ color: '#e9e6dc' }}
-                        />,
-                        <UserCheck
-                          key="usercheck"
-                          className="h-6 w-6"
-                          style={{ color: '#e9e6dc' }}
-                        />,
-                        <Theater key="theater" className="h-6 w-6" style={{ color: '#e9e6dc' }} />,
-                      ];
+                      const IconComponent = info.icon;
 
                       return (
                         <div
@@ -342,7 +372,9 @@ const LandingPage: React.FC = () => {
                           className="rounded-lg p-4 text-center"
                           style={{ backgroundColor: '#1b1915' }}
                         >
-                          <div className="mb-3 flex justify-center">{icons[index]}</div>
+                          <div className="mb-3 flex justify-center">
+                            <IconComponent className="h-6 w-6" style={{ color: '#e9e6dc' }} />
+                          </div>
                           <div className="text-sm" style={{ color: '#b7ae98' }}>
                             {info.label}
                           </div>
@@ -354,21 +386,30 @@ const LandingPage: React.FC = () => {
                     })}
                   </div>
 
-                  <div className="space-y-3">
-                    <h4 className="mb-3 font-semibold" style={{ color: '#e9e6dc' }}>
+                  <div className="px-2">
+                    <h4 className="mb-6 text-2xl font-semibold" style={{ color: '#e9e6dc' }}>
                       Im Erlebnis enthalten:
                     </h4>
-                    {content.tickets.highlights.map((highlight, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <div
-                          className="h-2 w-2 rounded-full"
-                          style={{ backgroundColor: '#c3a86b' }}
-                        ></div>
-                        <span className="text-sm" style={{ color: '#b7ae98' }}>
-                          {highlight}
-                        </span>
-                      </div>
-                    ))}
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      {content.tickets.highlights.map((highlight, index) => {
+                        const IconComponent = highlight.icon;
+
+                        return (
+                          <div
+                            key={index}
+                            className="rounded-lg p-4 text-center"
+                            style={{ backgroundColor: '#1b1915' }}
+                          >
+                            <div className="mb-3 flex justify-center">
+                              <IconComponent className="h-6 w-6" style={{ color: '#e9e6dc' }} />
+                            </div>
+                            <div className="font-semibold" style={{ color: '#e9e6dc' }}>
+                              {highlight.text}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -455,9 +496,10 @@ const LandingPage: React.FC = () => {
                         ))}
                       </div>
                     </div>
-                    <button
-                      disabled
-                      className="w-full cursor-pointer text-lg font-semibold transition-all duration-300 hover:scale-105"
+                    <a
+                      href="https://www.meistertrunk.de/de/karten-und-preise/#anno1631"
+                      target="_blank"
+                      className="flex w-full cursor-pointer items-center justify-center text-lg font-semibold transition-all duration-300 hover:scale-105"
                       style={{
                         backgroundColor: '#c3a86b',
                         color: '#0f0e0c',
@@ -465,24 +507,11 @@ const LandingPage: React.FC = () => {
                         padding: '16px 20px',
                       }}
                     >
-                      {content.tickets.primaryButton}
-                    </button>
-
-                    <button
-                      disabled
-                      className="w-full cursor-pointer transition-all duration-300 hover:scale-105"
-                      style={{
-                        border: '1px solid #c3a86b',
-                        color: '#c3a86b',
-                        borderRadius: '12px',
-                        padding: '12px 20px',
-                        fontWeight: '600',
-                        backgroundColor: 'transparent',
-                      }}
-                    >
-                      {content.tickets.secondaryButton}
-                    </button>
-
+                      <span className="flex items-center gap-2">
+                        <ExternalLink size={16} />
+                        {content.tickets.primaryButton}
+                      </span>
+                    </a>
                     <div className="pt-4 text-center text-sm" style={{ color: '#b7ae98' }}>
                       {content.tickets.trustInfo}
                     </div>
@@ -499,7 +528,7 @@ const LandingPage: React.FC = () => {
                   borderColor: 'rgba(39, 56, 74, 0.3)',
                 }}
               >
-                <h3 className="mb-3 text-lg font-semibold" style={{ color: '#e9e6dc' }}>
+                <h3 className="mb-3 text-2xl font-semibold" style={{ color: '#e9e6dc' }}>
                   {content.tickets.contact.title}
                 </h3>
                 <p className="mb-4" style={{ color: '#b7ae98' }}>
@@ -508,9 +537,7 @@ const LandingPage: React.FC = () => {
                 <div className="flex flex-col justify-center gap-4 sm:flex-row">
                   <div className="flex items-center justify-center gap-2">
                     <span>📧</span>
-                    <span className="text-sm font-medium" style={{ color: '#e9e6dc' }}>
-                      {content.tickets.contact.email}
-                    </span>
+                    <ObfuscatedEmail obfuscated={content.tickets.contact.emailObfuscated} />
                   </div>
                 </div>
               </div>
@@ -555,7 +582,7 @@ const LandingPage: React.FC = () => {
                   boxShadow: '0 10px 30px rgba(0,0,0,.35)',
                 }}
               >
-                <div className="relative aspect-square">
+                <div className="relative">
                   {content.team.image && !imageErrors[`team-${content.team.image}`] ? (
                     <img
                       src={content.team.image}
@@ -600,7 +627,7 @@ const LandingPage: React.FC = () => {
             ></div>
           </div>
 
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="flex items-center justify-center gap-12">
             {content.partners.partners.map((partner, index) => (
               <div key={index} className="text-center">
                 <div className="mb-4 flex justify-center">
@@ -611,7 +638,7 @@ const LandingPage: React.FC = () => {
                     className="transition-transform hover:scale-105"
                   >
                     <div
-                      className="flex h-30 w-50 items-center justify-center overflow-hidden rounded-lg"
+                      className="flex h-30 max-w-80 items-center justify-center overflow-hidden rounded-lg"
                       style={{
                         backgroundColor: '#fff',
                         border: '1px solid #2a261f',

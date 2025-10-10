@@ -1,15 +1,30 @@
-import { Crown, Sword, MapPin } from 'lucide-react';
+import {
+  Crown,
+  Sword,
+  MapPin,
+  Star,
+  Award,
+  Heart,
+  Sparkles,
+  Timer,
+  Languages,
+  UserCheck,
+  Theater,
+  Users,
+  Accessibility,
+  HandHeart,
+} from 'lucide-react';
 
 export const content = {
   about: {
     headline: 'Geschichte zum Leben erweckt',
     description:
-      'Einzelne Szenen aus dem Jahr 1631 erwachen zum Leben. Laiendarsteller des Vereins Historisches Festspiel "Der Meistertrunk" schlüpfen in historische Rollen und machen die Stadtgeschichte Rothenburgs so hautnah erlebbar mitten im Museum. Ein Erzähler begleitet euch, gibt Einblicke und verbindet die Szenen mit dem historischen Kontext. **Interaktion ist ausdrücklich erwünscht!**',
+      'Einzelne Szenen aus dem Jahr 1631 erwachen zum Leben. Laiendarstellende des Vereins Historisches Festspiel "Der Meistertrunk" schlüpfen in historische Rollen und machen die Stadtgeschichte Rothenburgs so hautnah erlebbar mitten im Museum. Ein Erzähler begleitet euch, gibt Einblicke und verbindet die Szenen mit dem historischen Kontext. **Interaktion ist ausdrücklich erwünscht!**',
     image: '/photos/meistertrunk_lebendiges-museum_0002.jpg',
     alt: 'Historische Darstellung im Museum - Geschichte wird lebendig',
     features: [
       'Interaktive Szenen: Besucher werden aktiv in das Geschehen eingebunden',
-      'Authentische Darstellung: Laiendarsteller in historischen Rollen',
+      'Authentische Darstellung: Laiendarstellende in historischen Rollen',
       'Historischer Kontext: Rothenburg ob der Tauber im Jahr 1631',
       'Museum als Bühne: Mitten im vereinseigenen Museum',
     ],
@@ -49,17 +64,30 @@ export const content = {
     headline: 'Sichert Euch Eure Tickets',
     description: 'Werdet Teil eines unvergesslichen Besuchs im Jahr 1631. Plätze sind begrenzt!',
     info: [
-      { label: 'Dauer', value: 'ca. 60 Minuten', icon: '⏰' },
-      { label: 'Sprache', value: 'Deutsch', icon: '🗣️' },
-      { label: 'Alter', value: 'Ab 14 Jahren', icon: '👥' },
-      { label: 'Gruppengröße', value: 'Max. 12 Personen', icon: '🎭' },
+      { label: 'Dauer', value: 'ca. 60 Minuten', icon: Timer },
+      { label: 'Sprache', value: 'Deutsch', icon: Languages },
+      { label: 'Alter', value: 'Ab 14 Jahren', icon: UserCheck },
+      { label: 'Gruppengröße', value: 'Max. 12 Personen', icon: Users },
+      { label: 'Räume', value: 'Nicht barrierefrei', icon: Accessibility },
+      { label: 'Interaktiv', value: 'Gäste werden eingebunden', icon: HandHeart },
     ],
     highlights: [
-      'Authentische historische Kostüme',
-      'Interaktive Theaterszenen',
-      'Professionelle Erzählerführung',
-      'Einzigartige Museumsatmosphäre',
-      'Historisch korrekte Darstellung',
+      {
+        text: 'Historische Kostüme',
+        icon: Star,
+      },
+      {
+        text: 'Interaktive Theaterszenen',
+        icon: Award,
+      },
+      {
+        text: 'Professionelle Erzählerführung',
+        icon: Heart,
+      },
+      {
+        text: 'Einzigartige Atmosphäre',
+        icon: Sparkles,
+      },
     ],
     regularPrice: '€14,90',
     discountedPrice: '€9,90',
@@ -77,23 +105,36 @@ export const content = {
         timeSlots: ['16:00 Uhr', '17:30 Uhr', '19:00 Uhr'],
       },
     ],
-    primaryButton: 'Online buchen (bald verfügbar)', // Tickets online buchen
-    secondaryButton: 'Gruppenanfrage stellen (bald verfügbar)', // Gruppenanfrage stellen
+    primaryButton: 'Jetzt online buchen',
     trustInfo: 'Sichere Online-Bezahlung • Bestätigung innerhalb 1-3 Werktage',
     contact: {
       title: 'Habt ihr Fragen?',
       description:
         'Unser Team hilft euch gerne bei der Buchung und beantwortet Fragen zum Erlebnis.',
-      email: 'shop@meistertrunk.de',
+      email: 'anno1631@meistertrunk.de',
+      emailObfuscated: {
+        // Using mixed method for best spam protection (local part base64, domain HTML entities)
+        mixed:
+          'YW5ubzE2MzE=@&#109;&#101;&#105;&#115;&#116;&#101;&#114;&#116;&#114;&#117;&#110;&#107;&#46;&#100;&#101;',
+        // Alternative: HTML entities method
+        entities:
+          '&#97;&#110;&#110;&#111;&#49;&#54;&#51;&#49;&#64;&#109;&#101;&#105;&#115;&#116;&#101;&#114;&#116;&#114;&#117;&#110;&#107;&#46;&#100;&#101;',
+        // Alternative: ROT13 encoding
+        rot13: 'nabb1631@zrfgregehx.de',
+        // Alternative: reversed with offset for JavaScript decoding
+        reversed: 'ed.knurrtesiem@1631onna',
+        // Alternative: encoded method
+        encoded: 'YW5ubzE2MzFAbWVpc3RlcnRydW5rLmRl',
+      },
     },
   },
   team: {
     headline: 'Das Team hinter dem Projekt',
     description:
-      'Das Projekt wird vollständig von Mitgliedern des Vereins "Historisches Festspiel der Meistertrunk" e.V. getragen. Über 800 Vereinsmitglieder beleben seit über 140 Jahren die Stadtgeschichte Rothenburgs.',
+      'Das Projekt wird vollständig von Mitgliedern des Vereins Historisches Festspiel "Der Meistertrunk" e.V. getragen. Über 800 Vereinsmitglieder beleben seit über 140 Jahren die Stadtgeschichte Rothenburgs.',
     details: [
-      'Darsteller: Ehrenamtliche Laiendarsteller aus verschiedenen Gruppierungen des Vereins',
-      'Erzähler: Erfahrene Mitglieder führen als roter Faden durch die Szenen',
+      'Mitwirkende: Ehrenamtlich Laiendarstellende aus verschiedenen Gruppierungen des Vereins',
+      'Erzähler: Erfahrene Mitglieder führen durch die Szenen',
       'Organisation: Vereinsmitglieder mit Unterstützung von Historikern und Museumsexperten',
     ],
     background:
@@ -122,17 +163,9 @@ export const content = {
         image: '/logos/partner-heimat-bayern.jpg',
         alt: 'Heimatministerium Bayern',
       },
-      {
-        name: 'Lebendiges Museum',
-        description: 'Authentische Darstellung der Geschichte',
-        logo: 'LM',
-        link: 'https://www.meistertrunk.de/de/museum/',
-        image: '/photos/partner-lebendiges-museum-logo.png',
-        alt: 'Logo des Lebendigen Museums',
-      },
     ],
   },
   footer: {
-    projectInfo: 'Ein Projekt des Vereins "Historisches Festspiel der Meistertrunk" e.V.',
+    projectInfo: 'Ein Projekt des Vereins Historisches Festspiel "Der Meistertrunk" e.V.',
   },
 };
